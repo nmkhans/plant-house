@@ -43,7 +43,7 @@ const Header = ({ children }) => {
                             </Link>
                         </div>
                         <div className="flex-none hidden lg:block">
-                            <ul className="menu menu-horizontal">
+                            <ul className="menu menu-horizontal hover:bg-transparent">
                                 <PageLinks />
                             </ul>
                         </div>

@@ -1,8 +1,11 @@
-import React from 'react';
-import {FiShoppingCart, FiSearch} from "react-icons/fi"
-import {RxAvatar} from "react-icons/rx"
+import React, { useState } from 'react';
+import { FiShoppingCart, FiSearch } from "react-icons/fi"
+import { RxAvatar } from "react-icons/rx"
+import { AiOutlineMenu } from "react-icons/ai"
 
 const Header = () => {
+    const [toggleSearch, setToggleSearch] = useState(false)
+
     return (
         <header>
             <div className="drawer drawer-end">
@@ -19,15 +22,34 @@ const Header = () => {
                                 <li><a>Navbar Item 2</a></li>
                             </ul>
                         </div>
-                        <div className="flex justify-between text-xl basis-[100px]">
-                            <span><FiShoppingCart /></span>
-                            <span><FiSearch /></span>
-                            <span><RxAvatar /></span>
-                        </div>
-                        <div className="flex-none lg:hidden">
-                            <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                            </label>
+                        <div className="flex items-center justify-evenly text-xl basis-[130px] lg:basis-[200px] relative">
+                            <span
+                                className="inline-block cursor-pointer"
+                            >
+                                <FiShoppingCart />
+                            </span>
+                            <span
+                                onClick={() => setToggleSearch(!toggleSearch)}
+                                className="inline-block cursor-pointer">
+                                <FiSearch />
+                            </span>
+                            <span
+                                className="hidden lg:inline-block cursor-pointer">
+                                <RxAvatar />
+                            </span>
+                            {toggleSearch && (
+                                <div className="absolute top-10 right-0 border p-2 bg-white shadow-md w-[300px] lg:w-[500px] rounded-lg">
+                                    <input type="text" placeholder="Type here" className="input w-full" />
+                                </div>
+                            )}
+                            <div className="flex-none lg:hidden">
+                                <label
+                                    htmlFor="my-drawer-3"
+                                    className="inline-block cursor-pointer text-xl"
+                                >
+                                    <AiOutlineMenu />
+                                </label>
+                            </div>
                         </div>
                     </div>
                     Content

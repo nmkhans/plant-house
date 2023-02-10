@@ -7,10 +7,11 @@ import Header from './components/Header/Header';
 function App() {
   return (
     <>
-    <Header />
-      <Routes>
-        {publicRoutes.map(({ name, path, Element }) => <Route key={name} path={path} element={<Element />} />)}
-      </Routes>
+      <Header>
+        <Routes>
+          {publicRoutes.map(({ name, path, Element }) => <Route key={name} path={path} element={<Element />} />)}
+        </Routes>
+      </Header>
     </>
   )
 }

@@ -1,18 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from "react-router-dom"
 import { FiShoppingCart, FiSearch } from "react-icons/fi"
 import { RxAvatar } from "react-icons/rx"
 import { AiOutlineMenu } from "react-icons/ai"
 import logo from "../../assets/logo.png"
+import Cart from '../cart/Cart';
 
-const Header = () => {
+const Header = ({ children }) => {
     const [toggleSearch, setToggleSearch] = useState(false)
+    const cartRef = useRef(null)
+
+    const PageLinks = () => {
+        return (
+            <>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/products">Products</Link></li>
+                <li><Link to="/">About</Link></li>
+                <li><Link to="/">Contact</Link></li>
+            </>
+        )
+    }
+
+    const handleCartToggle = () => {
+        if(cartRef.current.classList.contains("-right-[2000px]")) {
+            cartRef.current.classList.remove("-right-[2000px]")
+            cartRef.current.classList.add("-right-[10%]")
+        } else {
+            cartRef.current.classList.remove("-right-[10%]")
+            cartRef.current.classList.add("-right-[2000px]")
+        }
+    }
 
     return (
         <header>
-            <div className="drawer drawer-end">
-                <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col">
+            <div className="drawer drawer-end overflow-x-hidden">
+                <input id="header-nav" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content flex flex-col overflow-x-hidden">
                     <div className="flex justify-between items-center w-full navbar shadow-md px-5">
                         <div className="sm:flex-1 md:flex-1 lg:flex-none px-2 mx-2">
                             <Link to="/">
@@ -21,15 +44,12 @@ const Header = () => {
                         </div>
                         <div className="flex-none hidden lg:block">
                             <ul className="menu menu-horizontal">
-                                <li><a>Navbar Item 1</a></li>
-                                <li><a>Navbar Item 2</a></li>
-                                <li><a>Navbar Item 2</a></li>
-                                <li><a>Navbar Item 2</a></li>
-                                <li><a>Navbar Item 2</a></li>
+                                <PageLinks />
                             </ul>
                         </div>
                         <div className="flex items-center justify-evenly text-xl basis-[130px] lg:basis-[200px] relative">
                             <span
+                            onClick={handleCartToggle}
                                 className="inline-block cursor-pointer"
                             >
                                 <FiShoppingCart />
@@ -48,9 +68,12 @@ const Header = () => {
                                     <input type="text" placeholder="Type here" className="input w-full" />
                                 </div>
                             )}
+                            <div ref={cartRef} className="bg-white w-[300px] h-screen absolute -top-[20px] -right-[2000px] shadow-md z-50">
+                                <Cart handleCartToggle={handleCartToggle} />
+                            </div>
                             <div className="flex-none lg:hidden">
                                 <label
-                                    htmlFor="my-drawer-3"
+                                    htmlFor="header-nav"
                                     className="inline-block cursor-pointer text-xl"
                                 >
                                     <AiOutlineMenu />
@@ -58,13 +81,12 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-                    Content
+                    {children}
                 </div>
                 <div className="drawer-side">
-                    <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
+                    <label htmlFor="header-nav" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100">
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <PageLinks />
                         <div>
                             profile here
                         </div>

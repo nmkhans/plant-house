@@ -22,10 +22,12 @@ const Header = ({ children }) => {
     }
 
     const handleCartToggle = () => {
-        if (cartRef.current.classList.contains("translate-x-full")) {
-            cartRef.current.classList.remove("translate-x-full")
+        if (cartRef.current.classList.contains("-right-[2000px]")) {
+            cartRef.current.classList.remove("-right-[2000px]")
+            cartRef.current.classList.add("-right-[20px]")
         } else {
-            cartRef.current.classList.add("translate-x-full")
+            cartRef.current.classList.remove("-right-[20px]")
+            cartRef.current.classList.add("-right-[2000px]")
         }
     }
 
@@ -72,7 +74,7 @@ const Header = ({ children }) => {
                                     </form>
                                 </div>
                             )}
-                            <div ref={cartRef} className="bg-white w-[600px] h-screen absolute -top-[20px] translate-x-full transform transition-transform shadow-md z-50">
+                            <div ref={cartRef} className="bg-white w-[320px] h-screen absolute -top-[20px] -right-[2000px] shadow-md z-50">
                                 <Cart handleCartToggle={handleCartToggle} />
                             </div>
                             <div className="flex-none lg:hidden">

@@ -22,12 +22,10 @@ const Header = ({ children }) => {
     }
 
     const handleCartToggle = () => {
-        if(cartRef.current.classList.contains("-right-[2000px]")) {
-            cartRef.current.classList.remove("-right-[2000px]")
-            cartRef.current.classList.add("-right-[10%]")
+        if (cartRef.current.classList.contains("translate-x-full")) {
+            cartRef.current.classList.remove("translate-x-full")
         } else {
-            cartRef.current.classList.remove("-right-[10%]")
-            cartRef.current.classList.add("-right-[2000px]")
+            cartRef.current.classList.add("translate-x-full")
         }
     }
 
@@ -47,34 +45,37 @@ const Header = ({ children }) => {
                                 <PageLinks />
                             </ul>
                         </div>
-                        <div className="flex items-center justify-evenly text-xl basis-[130px] lg:basis-[200px] relative">
+                        <div className="flex items-center justify-between basis-[200px] lg:basis-[280px] relative">
                             <span
-                            onClick={handleCartToggle}
-                                className="inline-block cursor-pointer"
+                                onClick={handleCartToggle}
+                                className="inline-flex items-center cursor-pointer"
                             >
-                                <FiShoppingCart />
+                                <FiShoppingCart className="text-lg" />
+                                <span className="text-md ml-2">Cart</span>
                             </span>
                             <span
                                 onClick={() => setToggleSearch(!toggleSearch)}
-                                className="inline-block cursor-pointer">
-                                <FiSearch />
+                                className="inline-flex  items-cetner cursor-pointer">
+                                <FiSearch className="text-lg" />
+                                <span className="text-md ml-2">Search</span>
                             </span>
                             <span
-                                className="hidden lg:inline-block cursor-pointer">
-                                <RxAvatar />
+                                className="hidden lg:inline-flex items-center cursor-pointer">
+                                <RxAvatar className="text-lg" />
+                                <span className="text-md ml-2">Account</span>
                             </span>
                             {toggleSearch && (
                                 <div className="absolute top-10 right-0 border p-2 bg-white shadow-md w-[300px] lg:w-[500px] rounded-lg">
                                     <input type="text" placeholder="Type here" className="input w-full" />
                                 </div>
                             )}
-                            <div ref={cartRef} className="bg-white w-[300px] h-screen absolute -top-[20px] -right-[2000px] shadow-md z-50">
+                            <div ref={cartRef} className="bg-white w-[600px] h-screen absolute -top-[20px] translate-x-full transform transition-transform shadow-md z-50">
                                 <Cart handleCartToggle={handleCartToggle} />
                             </div>
                             <div className="flex-none lg:hidden">
                                 <label
                                     htmlFor="header-nav"
-                                    className="inline-block cursor-pointer text-xl"
+                                    className="inline-block cursor-pointer text-xl mt-2"
                                 >
                                     <AiOutlineMenu />
                                 </label>

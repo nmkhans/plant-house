@@ -13,10 +13,10 @@ const Header = () => {
             <div className="drawer drawer-end">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col">
-                    <div className="flex justify-evenly items-center w-full navbar shadow-md">
+                    <div className="flex justify-between items-center w-full navbar shadow-md px-5">
                         <div className="sm:flex-1 md:flex-1 lg:flex-none px-2 mx-2">
                             <Link to="/">
-                                <img className="w-[100px]" src={logo} alt="logo" />
+                                <img className="w-[80px] lg:w-[100px]" src={logo} alt="logo" />
                             </Link>
                         </div>
                         <div className="flex-none hidden lg:block">

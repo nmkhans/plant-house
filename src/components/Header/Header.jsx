@@ -65,8 +65,11 @@ const Header = ({ children }) => {
                                 <span className="text-md ml-2">Account</span>
                             </span>
                             {toggleSearch && (
-                                <div className="absolute top-10 right-0 border p-2 bg-white shadow-md w-[300px] lg:w-[500px] rounded-lg">
-                                    <input type="text" placeholder="Type here" className="input w-full" />
+                                <div className="absolute top-10 right-0 border p-2 bg-white shadow-md w-[350px] lg:w-[500px] rounded-lg">
+                                    <form className="flex items-center">
+                                        <input type="text" placeholder="Type here" className="input input-bordered w-full" />
+                                        <button className="btn btn-primary text-white ml-3">Search</button>
+                                    </form>
                                 </div>
                             )}
                             <div ref={cartRef} className="bg-white w-[600px] h-screen absolute -top-[20px] translate-x-full transform transition-transform shadow-md z-50">

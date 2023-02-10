@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom"
 import { FiShoppingCart, FiSearch } from "react-icons/fi"
 import { RxAvatar } from "react-icons/rx"
 import { AiOutlineMenu } from "react-icons/ai"
+import logo from "../../assets/logo.png"
 
 const Header = () => {
     const [toggleSearch, setToggleSearch] = useState(false)
@@ -11,8 +13,12 @@ const Header = () => {
             <div className="drawer drawer-end">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col">
-                    <div className="flex justify-evenly items-center w-full navbar shadow-md py-5">
-                        <div className="sm:flex-1 md:flex-1 lg:flex-none px-2 mx-2">Navbar Title</div>
+                    <div className="flex justify-evenly items-center w-full navbar shadow-md">
+                        <div className="sm:flex-1 md:flex-1 lg:flex-none px-2 mx-2">
+                            <Link to="/">
+                                <img className="w-[100px]" src={logo} alt="logo" />
+                            </Link>
+                        </div>
                         <div className="flex-none hidden lg:block">
                             <ul className="menu menu-horizontal">
                                 <li><a>Navbar Item 1</a></li>
@@ -59,6 +65,9 @@ const Header = () => {
                     <ul className="menu p-4 w-80 bg-base-100">
                         <li><a>Sidebar Item 1</a></li>
                         <li><a>Sidebar Item 2</a></li>
+                        <div>
+                            profile here
+                        </div>
                     </ul>
                 </div>
             </div>

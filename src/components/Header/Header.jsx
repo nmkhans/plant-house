@@ -13,10 +13,18 @@ const Header = ({ children }) => {
     const PageLinks = () => {
         return (
             <>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/products">Products</Link></li>
-                <li><Link to="/">About</Link></li>
-                <li><Link to="/">Contact</Link></li>
+                <li>
+                    <Link className="hover:bg-transparent" to="/">Home</Link>
+                </li>
+                <li>
+                    <Link className="hover:bg-transparent" to="/products">Products</Link>
+                </li>
+                <li>
+                    <Link className="hover:bg-transparent" to="/">About</Link>
+                </li>
+                <li>
+                    <Link className="hover:bg-transparent" to="/">Contact</Link>
+                </li>
             </>
         )
     }
@@ -39,11 +47,11 @@ const Header = ({ children }) => {
                     <div className="flex justify-between items-center w-full navbar shadow-md px-5">
                         <div className="sm:flex-1 md:flex-1 lg:flex-none px-2 mx-2">
                             <Link to="/">
-                                <img className="w-[80px] lg:w-[100px]" src={logo} alt="logo" />
+                                <img className="w-[70px] lg:w-[90px]" src={logo} alt="logo" />
                             </Link>
                         </div>
                         <div className="flex-none hidden lg:block">
-                            <ul className="menu menu-horizontal hover:bg-transparent">
+                            <ul className="menu menu-horizontal hover:none">
                                 <PageLinks />
                             </ul>
                         </div>

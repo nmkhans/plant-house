@@ -4,40 +4,18 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs"
-import plant from "../../assets/plant.jpg"
-import plant2 from "../../assets/plant-2.jpg"
+import { useGetCategoriesQuery } from '../../redux/api/api';
+import capitalize from '../../utils/captalize';
+import slides from './../../utils/slides';
 
 const Hero = () => {
+    const { data, isLoading } = useGetCategoriesQuery()
     const [query, setQuery] = useState({
         start: 0,
         end: 7
     })
     const navigate = useNavigate()
-
-    const categories = [
-        { name: "fruit" },
-        { name: "flower" },
-        { name: "indoor" },
-        { name: "bransai" },
-        { name: "fruit" },
-        { name: "flower" },
-        { name: "indoor" },
-        { name: "fruit2" },
-        { name: "flower2" },
-        { name: "indoor2" },
-        { name: "bransai2" },
-        { name: "fruit2" },
-        { name: "flower2" },
-        { name: "indoor2" },
-        { name: "fruit3" },
-        { name: "flower3" },
-        { name: "indoor3" },
-        { name: "bransai3" },
-        { name: "fruit3" },
-        { name: "flower3" },
-        { name: "indoor3" },
-        { name: "indoor4" },
-    ]
+    const categories = data?.data;
 
     const handlePrev = () => {
         if (query.start !== 0)
@@ -62,9 +40,9 @@ const Hero = () => {
                 <div className="dropdown dropdown-open w-full">
                     <div className="bg-primary text-white shadow-md mb-3 p-3 rounded">Categories</div>
                     <ul className="menu shadow-lg bg-base-100 rounded w-full">
-                        {categories.slice(query.start, query.end).map(category => (
-                            <li className="border">
-                                <Link to={`/category/${category.name}`}>{category.name}</Link>
+                        {categories?.slice(query.start, query.end).map(category => (
+                            <li key={category._id} className="border">
+                                <Link to={`/category/${category.name}`}>{capitalize(category.name)} Plant</Link>
                             </li>
                         ))}
                     </ul>
@@ -91,46 +69,18 @@ const Hero = () => {
                         swipeable={true}
                         showStatus={false}
                     >
-                        <div className="relative">
-                            <img src={plant} alt="slider image" />
-                            <div className="absolute top-[30%] left-[5%] text-left">
-                                <h3 className="text-primary text-4xl font-semibold mb-5">House of plants.</h3>
-                                <p className="text-md text-base-200 w-2/3 mb-3">We have varity of plants. any plant you can think of, we can sell it... </p>
-                                <button
-                                    onClick={() => navigate("/shop")}
-                                    className="btn btn-md btn-primary text-white mt-3">Shop now</button>
+                        {slides.map(slide => (
+                            <div className="relative h-[200px] lg:h-auto">
+                                <img className="h-full" src={slide.image} alt="slider image" />
+                                <div className="absolute top-[10%] lg:top-[30%] left-[5%] text-left">
+                                    <h3 className="text-primary text-xl lg:text-4xl font-semibold mb-2 lg:mb-5">{slide.title}</h3>
+                                    <p className="text-[12px] lg:text-[16px] text-base-200 w-2/3 mb-3">{slide.description}</p>
+                                    <button
+                                        onClick={() => navigate("/shop")}
+                                        className="btn btn-sm lg:btn-md btn-primary text-white mt-0 lg:mt-3">Shop now</button>
+                                </div>
                             </div>
-                        </div>
-                        <div className="relative">
-                            <img src={plant2} alt="slider image" />
-                            <div className="absolute top-[30%] left-[5%] text-left">
-                                <h3 className="text-primary text-4xl font-semibold mb-5">Quality plants.</h3>
-                                <p className="text-md text-base-200 w-2/3 mb-3">We sell premium and qualitifull plants. You order and we'll send at your door step... </p>
-                                <button
-                                    onClick={() => navigate("/shop")}
-                                    className="btn btn-md btn-primary text-white mt-3">Shop now</button>
-                            </div>
-                        </div>
-                        <div className="relative">
-                            <img src={plant} alt="slider image" />
-                            <div className="absolute top-[30%] left-[5%] text-left">
-                                <h3 className="text-primary text-4xl font-semibold mb-5">House of plants.</h3>
-                                <p className="text-md text-base-200 w-2/3 mb-3">We have varity of plants. any plant you can think of, we can sell it... </p>
-                                <button
-                                    onClick={() => navigate("/shop")}
-                                    className="btn btn-md btn-primary text-white mt-3">Shop now</button>
-                            </div>
-                        </div>
-                        <div className="relative">
-                            <img src={plant2} alt="slider image" />
-                            <div className="absolute top-[30%] left-[5%] text-left">
-                                <h3 className="text-primary text-4xl font-semibold mb-5">Quality plants.</h3>
-                                <p className="text-md text-base-200 w-2/3 mb-3">We sell premium and qualitifull plants. You order and we'll send at your door step... </p>
-                                <button
-                                    onClick={() => navigate("/shop")}
-                                    className="btn btn-md btn-primary text-white mt-3">Shop now</button>
-                            </div>
-                        </div>
+                        ))}
                     </Carousel>
                 </div>
             </div>

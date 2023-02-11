@@ -5,11 +5,11 @@ export const api = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1"}),
     endpoints: (builder) => ({
         getCategories: builder.query({
-            query: () => "/category"
+            query: () => "/categories"
         })
     })
 })
 
 export const {
-    useGetCategoryQuery
+    useGetCategoriesQuery
 } = api

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs"
 import { useGetCategoriesQuery } from '../../redux/api/api';
 import capitalize from '../../utils/captalize';
 import slides from './../../utils/slides';
+import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs"
 
 const Hero = () => {
     const { data, isLoading } = useGetCategoriesQuery()
@@ -72,12 +72,14 @@ const Hero = () => {
                         {slides.map(slide => (
                             <div className="relative h-[200px] lg:h-auto">
                                 <img className="h-full" src={slide.image} alt="slider image" />
-                                <div className="absolute top-[10%] lg:top-[30%] left-[5%] text-left">
+                                <div className="absolute top-[15%] lg:top-[30%] left-[5%] text-left">
                                     <h3 className="text-primary text-xl lg:text-4xl font-semibold mb-2 lg:mb-5">{slide.title}</h3>
                                     <p className="text-[12px] lg:text-[16px] text-base-200 w-2/3 mb-3">{slide.description}</p>
                                     <button
                                         onClick={() => navigate("/shop")}
-                                        className="btn btn-sm lg:btn-md btn-primary text-white mt-0 lg:mt-3">Shop now</button>
+                                        className="btn btn-sm lg:btn-md btn-primary text-white mt-0 lg:mt-3">
+                                        Shop now
+                                    </button>
                                 </div>
                             </div>
                         ))}

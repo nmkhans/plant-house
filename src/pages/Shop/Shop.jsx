@@ -2,9 +2,9 @@ import React from 'react';
 
 const Shop = () => {
     return (
-        <div>
-            shop page
-        </div>
+        <main className="py-5">
+            
+        </main>
     );
 };
 

@@ -55,7 +55,7 @@ const Header = ({ children }) => {
             <div className="drawer drawer-end overflow-x-hidden">
                 <input id="header-nav" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col overflow-x-hidden">
-                    <div className="flex justify-between items-center w-full navbar shadow-md px-5">
+                    <div className="flex justify-between items-center w-full navbar shadow-md px-5 py-5 lg:py-10">
                         <div className="sm:flex-1 md:flex-1 lg:flex-none px-2 mx-2">
                             <Link to="/">
                                 <img className="w-[70px] lg:w-[90px]" src={logo} alt="logo" />

@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from './../../sections/Hero/Hero';
 import Features from './../../sections/Features/Features';
 import AllProducts from '../../sections/AllProducts/AllProducts';
+import Newsletter from './../../sections/Newseletter/Newsletter';
 
 const Home = () => {
 
@@ -11,6 +12,7 @@ const Home = () => {
                 <Hero />
                 <Features />
                 <AllProducts />
+                <Newsletter />
             </div>
         </main>
     );

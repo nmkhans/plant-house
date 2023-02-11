@@ -5,10 +5,14 @@ import { RxAvatar } from "react-icons/rx"
 import { AiOutlineMenu } from "react-icons/ai"
 import logo from "../../assets/logo.png"
 import Cart from '../cart/Cart';
+import { useNavigate } from 'react-router-dom'
+import { useForm } from "react-hook-form"
 
 const Header = ({ children }) => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm()
     const [toggleSearch, setToggleSearch] = useState(false)
     const cartRef = useRef(null)
+    const navigate = useNavigate()
 
     const PageLinks = () => {
         return (
@@ -37,6 +41,13 @@ const Header = ({ children }) => {
             cartRef.current.classList.remove("-right-[20px]")
             cartRef.current.classList.add("-right-[2000px]")
         }
+    }
+
+    const onSubmit = (data) => {
+        const search = data?.search;
+        navigate(`/search/${search}`)
+        reset()
+        setToggleSearch(false)
     }
 
     return (
@@ -75,11 +86,21 @@ const Header = ({ children }) => {
                                 <span className="text-md ml-2">Account</span>
                             </span>
                             {toggleSearch && (
-                                <div className="absolute top-10 right-0 border p-2 bg-white shadow-md w-[350px] lg:w-[500px] rounded-lg">
-                                    <form className="flex items-center">
-                                        <input type="text" placeholder="Type here" className="input input-bordered w-full" />
+                                <div className="absolute top-10 right-0 border p-2 bg-white shadow-md w-[350px] lg:w-[500px] rounded-lg z-10">
+                                    <form
+                                        onSubmit={handleSubmit(onSubmit)}
+                                        className="flex items-center">
+                                        <input type="text" placeholder="Search here" className="input input-bordered w-full"
+                                            {...register("search", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Please provide something!"
+                                                }
+                                            })}
+                                        />
                                         <button className="btn btn-primary text-white ml-3">Search</button>
                                     </form>
+                                    {errors?.search?.type && <p className="text-center py-2 mt-1 text-red-600">{errors?.search?.message}</p>}
                                 </div>
                             )}
                             <div ref={cartRef} className="bg-white w-[320px] h-screen absolute -top-[20px] -right-[2000px] shadow-md z-50">

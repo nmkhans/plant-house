@@ -35,19 +35,36 @@ const Banner = () => {
                 <div className="ml-0 mb-5 lg:ml-5 lg:mb-0">
                     <Carousel className="bg-white shadow-lg rounded-lg" autoPlay={true} infiniteLoop={true} showThumbs={false} swipeable={true}>
                         <div className="relative">
-                            <img src={plant} alt="" />
-                            <div className="absolute top-0 left-0">
-                                <h3>best plants</h3>
+                            <img src={plant} alt="slider image" />
+                            <div className="absolute top-[30%] left-[5%] text-left">
+                                <h3 className="text-primary text-4xl font-semibold mb-5">House of plants.</h3>
+                                <p className="text-md text-base-200 w-2/3 mb-3">We have varity of plants. any plant you can think of, we can sell it... </p>
+                                <button className="btn btn-md btn-primary text-white mt-3">Shop now</button>
                             </div>
                         </div>
-                        <div>
-                            <img src={plant2} alt="" />
+                        <div className="relative">
+                            <img src={plant2} alt="slider image" />
+                            <div className="absolute top-[30%] left-[5%] text-left">
+                                <h3 className="text-primary text-4xl font-semibold mb-5">Quality plants.</h3>
+                                <p className="text-md text-base-200 w-2/3 mb-3">We sell premium and qualitifull plants. You order and we'll send at your door step... </p>
+                                <button className="btn btn-md btn-primary text-white mt-3">Shop now</button>
+                            </div>
                         </div>
-                        <div>
-                            <img src={plant} alt="" />
+                        <div className="relative">
+                            <img src={plant} alt="slider image" />
+                            <div className="absolute top-[30%] left-[5%] text-left">
+                                <h3 className="text-primary text-4xl font-semibold mb-5">House of plants.</h3>
+                                <p className="text-md text-base-200 w-2/3 mb-3">We have varity of plants. any plant you can think of, we can sell it... </p>
+                                <button className="btn btn-md btn-primary text-white mt-3">Shop now</button>
+                            </div>
                         </div>
-                        <div>
-                            <img src={plant2} alt="" />
+                        <div className="relative">
+                            <img src={plant2} alt="slider image" />
+                            <div className="absolute top-[30%] left-[5%] text-left">
+                                <h3 className="text-primary text-4xl font-semibold mb-5">Quality plants.</h3>
+                                <p className="text-md text-base-200 w-2/3 mb-3">We sell premium and qualitifull plants. You order and we'll send at your door step... </p>
+                                <button className="btn btn-md btn-primary text-white mt-3">Shop now</button>
+                            </div>
                         </div>
                     </Carousel>
                 </div>

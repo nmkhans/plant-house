@@ -40,11 +40,11 @@ const Hero = () => {
     ]
 
     const handlePrev = () => {
-        if(query.start !== 0)
-        setQuery(prev => ({
-            start: query.start - 7,
-            end: query.end - 7
-        }))
+        if (query.start !== 0)
+            setQuery(prev => ({
+                start: query.start - 7,
+                end: query.end - 7
+            }))
     }
 
     const handleNext = () => {
@@ -71,8 +71,8 @@ const Hero = () => {
                 </div>
                 <div className="flex justify-around mt-5">
                     <button
-                    onClick={handlePrev}
-                    className="text-primary font-normal text-2xl">
+                        onClick={handlePrev}
+                        className="text-primary font-normal text-2xl">
                         <BsFillArrowLeftCircleFill />
                     </button>
                     <button
@@ -84,7 +84,13 @@ const Hero = () => {
             </div>
             <div className="basis-3/4">
                 <div className="ml-0 mb-5 lg:ml-5 lg:mb-0">
-                    <Carousel className="bg-white shadow-lg rounded-lg" autoPlay={true} infiniteLoop={true} showThumbs={false} swipeable={true}>
+                    <Carousel
+                        className="bg-white shadow-lg rounded-lg" autoPlay={true}
+                        infiniteLoop={true}
+                        showThumbs={false}
+                        swipeable={true}
+                        showStatus={false}
+                    >
                         <div className="relative">
                             <img src={plant} alt="slider image" />
                             <div className="absolute top-[30%] left-[5%] text-left">

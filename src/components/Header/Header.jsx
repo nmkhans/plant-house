@@ -17,7 +17,7 @@ const Header = ({ children }) => {
                     <Link className="hover:bg-transparent" to="/">Home</Link>
                 </li>
                 <li>
-                    <Link className="hover:bg-transparent" to="/products">Products</Link>
+                    <Link className="hover:bg-transparent" to="/shop">Shop</Link>
                 </li>
                 <li>
                     <Link className="hover:bg-transparent" to="/">About</Link>

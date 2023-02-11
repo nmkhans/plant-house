@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useGetCategoriesQuery } from '../../redux/api/api';
 import capitalize from '../../utils/captalize';
-import slides from './../../utils/slides';
+import slides from '../../utils/slides';
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs"
 
 const Hero = () => {
@@ -35,7 +35,7 @@ const Hero = () => {
     }
 
     return (
-        <section className="flex flex-col-reverse lg:flex-row justify-between items-center">
+        <section className="flex flex-col-reverse lg:flex-row justify-between items-center my-5">
             <div className="basis-full lg:basis-1/4 w-full">
                 <div className="dropdown dropdown-open w-full">
                     <div className="bg-primary text-white shadow-md mb-3 p-3 rounded">Categories</div>

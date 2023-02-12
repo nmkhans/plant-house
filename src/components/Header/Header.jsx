@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useIsAuthenticated } from 'react-auth-kit';
 import { FiShoppingCart, FiSearch } from "react-icons/fi"
 import { RxAvatar } from "react-icons/rx"
 import { AiOutlineMenu } from "react-icons/ai"
@@ -12,6 +13,8 @@ const Header = ({ children }) => {
     const [toggleSearch, setToggleSearch] = useState(false)
     const [accountMenu, setAccountMenu] = useState(false);
     const cartRef = useRef(null)
+    const isAuthenticated = useIsAuthenticated()
+    const navigate = useNavigate()
 
     const PageLinks = () => {
         return (
@@ -58,7 +61,7 @@ const Header = ({ children }) => {
                                 <PageLinks />
                             </ul>
                         </div>
-                        <div className="flex items-center justify-between basis-[200px] lg:basis-[280px] relative">
+                        <div className="flex items-center justify-between basis-[200px] lg:basis-[320px] relative">
                             <span
                                 onClick={handleCartToggle}
                                 className="inline-flex items-center cursor-pointer"
@@ -72,22 +75,33 @@ const Header = ({ children }) => {
                                 <FiSearch className="text-lg" />
                                 <span className="text-md ml-2">Search</span>
                             </span>
-                            <span
-                                onMouseEnter={() => setAccountMenu(true)}
-                                onMouseLeave={() => setAccountMenu(false)}
-                                className="hidden lg:inline-flex items-center cursor-pointer relative">
-                                <RxAvatar className="text-lg" />
-                                <span className="text-md ml-2">Account</span>
-                                {accountMenu && (
-                                    <AccountMenu />
-                                )}
-                            </span>
+                            {isAuthenticated() ? (
+                                <span
+                                    onMouseEnter={() => setAccountMenu(true)}
+                                    onMouseLeave={() => setAccountMenu(false)}
+                                    className="hidden lg:inline-flex items-center cursor-pointer relative">
+                                    <RxAvatar className="text-lg" />
+                                    <span className="text-md ml-2">Account</span>
+                                    {accountMenu && (
+                                        <div className="absolute top-6 right-0 z-50">
+                                            <AccountMenu />
+                                        </div>
+                                    )}
+                                </span>
+                            ) : (
+                                <span
+                                    onClick={() => navigate("/login")}
+                                    className="hidden lg:inline-flex items-center cursor-pointer relative">
+                                    <RxAvatar className="text-lg" />
+                                    <span className="text-md ml-2">Login/Register</span>
+                                </span>
+                            )}
                             {toggleSearch && (
                                 <SearchBox
                                     setToggleSearch={setToggleSearch}
                                 />
                             )}
-                            <div ref={cartRef} className="bg-white w-[320px] h-screen absolute -top-[20px] -right-[2000px] shadow-md z-50">
+                            <div ref={cartRef} className="bg-white w-[320px] h-screen absolute -top-[20px] -right-[2000px] shadow-md z-50 overflow-y-scroll">
                                 <Cart handleCartToggle={handleCartToggle} />
                             </div>
                             <div className="flex-none lg:hidden">
@@ -106,9 +120,19 @@ const Header = ({ children }) => {
                     <label htmlFor="header-nav" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 bg-base-100">
                         <PageLinks />
-                        <div>
-                            profile here
-                        </div>
+                        {isAuthenticated() ? (
+                            <div className="flex justify-center">
+                                <AccountMenu />
+                            </div>
+                        ) : (
+                            <div
+                            onClick={() => navigate("/login")}
+                            className="flex mt-3 items-center cursor-pointer">
+                                <RxAvatar className="text-lg" />
+                                <span className="text-md ml-2">Login/Register</span>
+                            </div>
+                        )}
+
                     </ul>
                 </div>
             </div>

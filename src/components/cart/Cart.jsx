@@ -7,7 +7,9 @@ const Cart = ({ handleCartToggle }) => {
             <div className="cart__close absolute top-5 right-5">
                 <button className="text-xl" onClick={handleCartToggle}><FaRegTimesCircle /></button>
             </div>
-
+            <div>
+                
+            </div>
             
         </aside>
     );

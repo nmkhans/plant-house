@@ -1,8 +1,9 @@
 import React from 'react';
 
 const ProductDetail = () => {
+    console.log("product detail")
     return (
-        <div>
+        <div className="">
             product detail
         </div>
     );

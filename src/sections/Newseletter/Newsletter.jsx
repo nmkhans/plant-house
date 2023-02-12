@@ -1,6 +1,13 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const Newsletter = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm()
+
+    const onSubmit = (event) => {
+
+    }
+
     return (
         <section className="py-5">
             <div className="card shadow-lg w-full bg-primary text-white">
@@ -11,8 +18,18 @@ const Newsletter = () => {
                             <p className="w-full lg:w-3/4">Stay connected with us by subscribing to our news letter. We'll give amazing discount over time...</p>
                         </div>
                         <div>
-                            <form className="flex flex-col lg:flex-row">
-                                <input className="input border-2 bg-base-300 w-full" type="text" placeholder="Your email address" />
+                            <form
+                                onSubmit={handleSubmit(onSubmit)}
+                                className="flex flex-col lg:flex-row">
+                                <input
+                                    className="input border-2 bg-base-300 w-full"
+                                    type="text"
+                                    placeholder="Your email address"
+                                    {...register("email", {
+                                        required: true,
+                                        message: "Please provide email!"
+                                    })}
+                                />
                                 <button className="btn bg-base-300 border-2 border-primary text-primary ml-0 lg:ml-3 mt-3 lg:mt-0">Subscribe</button>
                             </form>
                         </div>

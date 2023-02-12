@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Product = ({ product }) => {
-    console.log(product)
+    
     return (
         <div className="card border bg-base-100 shadow-xl">
             <figure>

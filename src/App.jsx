@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import publicRoutes from './routes/publicRoutes'
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         </Routes>
         <Footer />
       </Header>
+      <Toaster />
     </>
   )
 }

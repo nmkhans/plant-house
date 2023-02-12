@@ -1,15 +1,19 @@
 import React from 'react';
 import registerImg from "../../assets/register.svg"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import toast from 'react-hot-toast';
+import { useSignIn } from 'react-auth-kit'
 import { useRegisterUserMutation, useUploadImageMutation } from '../../redux/api/api';
+import { TailSpin } from 'react-loader-spinner'
 
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [uploadImage] = useUploadImageMutation()
-    const [registerUser] = useRegisterUserMutation()
+    const [registerUser, { isLoading }] = useRegisterUserMutation()
+    const signIn = useSignIn()
+    const navigate = useNavigate()
 
     const onSubmit = async (data) => {
         if (data.password === data.cPassword) {
@@ -22,15 +26,22 @@ const Register = () => {
                 ...data,
                 image: imageUrl
             }
-            
-            const result = await registerUser(userData)
-            
-            if(result?.data?.success) {
-                toast.success(result?.data?.message, {
+
+            const response = await registerUser(userData)
+
+            if (response?.data?.success) {
+                signIn({
+                    token: response.data.token,
+                    expiresIn: 3600,
+                    tokenType: "Bearer",
+                    authState: response.data.data
+                })
+                navigate("/")
+                toast.success(response?.data?.message, {
                     position: "bottom-center"
                 })
             } else {
-                toast.error(result?.error?.data?.message, {
+                toast.error(response?.error?.data?.message, {
                     position: "bottom-center"
                 })
             }
@@ -148,7 +159,16 @@ const Register = () => {
                                         </label>
                                     </div>
                                     <div className="form-control mt-6">
-                                        <button className="btn btn-primary text-white">Register</button>
+                                        <button className="btn btn-primary text-white">
+                                            {isLoading ? <TailSpin
+                                                height="30"
+                                                width="30"
+                                                color="#fff"
+                                                ariaLabel="tail-spin-loading"
+                                                radius="1"
+                                                visible={true}
+                                            /> : "Register"}
+                                        </button>
                                     </div>
                                 </form>
                             </div>

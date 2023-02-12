@@ -1,13 +1,37 @@
 import React from 'react';
 import login from "../../assets/login.svg"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
+import toast from 'react-hot-toast';
+import { useSignIn } from 'react-auth-kit'
+import { useLoginUserMutation } from '../../redux/api/api';
+import { TailSpin } from 'react-loader-spinner'
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const [loginUser, { isLoading }] = useLoginUserMutation()
+    const signIn = useSignIn()
+    const navigate = useNavigate()
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
+        const response = await loginUser(data)
 
+        if (response?.data?.success) {
+            signIn({
+                token: response.data.token,
+                expiresIn: 3600,
+                tokenType: "Bearer",
+                authState: response.data.data
+            })
+            navigate("/")
+            toast.success(response?.data?.message, {
+                position: "bottom-center"
+            })
+        } else {
+            toast.error(response?.error?.data?.message, {
+                position: "bottom-center"
+            })
+        }
     }
 
     return (
@@ -56,7 +80,16 @@ const Login = () => {
                                         </label>
                                     </div>
                                     <div className="form-control mt-6">
-                                        <button className="btn btn-primary text-white">Login</button>
+                                        <button className="btn btn-primary text-white">
+                                            {isLoading ? <TailSpin
+                                                height="30"
+                                                width="30"
+                                                color="#fff"
+                                                ariaLabel="tail-spin-loading"
+                                                radius="1"
+                                                visible={true}
+                                            /> : "Login"}
+                                        </button>
                                     </div>
                                 </form>
                             </div>

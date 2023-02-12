@@ -11,6 +11,13 @@ export const api = createApi({
                 body: data
             })
         }),
+        loginUser: builder.mutation({
+            query: (data) => ({
+                url: "/user/login",
+                method: "POST",
+                body: data
+            })
+        }),
         uploadImage: builder.mutation({
             query: (data) => ({
                 url: "/upload",
@@ -29,6 +36,7 @@ export const api = createApi({
 
 export const {
     useRegisterUserMutation,
+    useLoginUserMutation,
     useUploadImageMutation,
     useGetCategoriesQuery,
     useGetAllProductsQuery

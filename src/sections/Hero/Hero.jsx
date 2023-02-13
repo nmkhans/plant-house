@@ -70,7 +70,7 @@ const Hero = () => {
                         showStatus={false}
                     >
                         {slides.map(slide => (
-                            <div className="relative h-[200px] lg:h-auto">
+                            <div key={slide.title} className="relative h-[200px] lg:h-auto">
                                 <img className="h-full" src={slide.image} alt="slider image" />
                                 <div className="absolute top-[15%] lg:top-[30%] left-[5%] text-left">
                                     <h3 className="text-primary text-xl lg:text-4xl font-semibold mb-2 lg:mb-5">{slide.title}</h3>

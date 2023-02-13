@@ -1,18 +1,29 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from "react-router-dom"
 import { useIsAuthenticated } from 'react-auth-kit';
 import { FiShoppingCart, FiSearch } from "react-icons/fi"
 import { RxAvatar } from "react-icons/rx"
 import { AiOutlineMenu } from "react-icons/ai"
+import { useSelector } from 'react-redux';
 import logo from "../../assets/logo.png"
 import Cart from '../cart/Cart';
 import SearchBox from '../SearchBox/SearchBox';
 import AccountMenu from '../AccountMenu/AccountMenu';
 
+function cartTotal(cart) {
+    let quantity = 0
+    for(let item in cart) {
+        quantity += cart[item].quantity
+    }
+
+    return quantity
+}
+
 const Header = ({ children }) => {
     const [toggleSearch, setToggleSearch] = useState(false)
     const [accountMenu, setAccountMenu] = useState(false);
     const cartRef = useRef(null)
+    const cart = useSelector(state => state.cart.value)
     const isAuthenticated = useIsAuthenticated()
     const navigate = useNavigate()
 
@@ -50,7 +61,7 @@ const Header = ({ children }) => {
             <div className="drawer drawer-end overflow-x-hidden">
                 <input id="header-nav" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col overflow-x-hidden">
-                    <div className="flex justify-between items-center w-full navbar shadow-md px-5 py-5 lg:py-10">
+                    <div className="bg-white flex justify-between items-center navbar shadow-md px-5 py-5 lg:py-10 sticky top-0 left-0 right-0 w-full z-50">
                         <div className="sm:flex-1 md:flex-1 lg:flex-none px-2 mx-2">
                             <Link to="/">
                                 <img className="w-[70px] lg:w-[90px]" src={logo} alt="logo" />
@@ -61,11 +72,12 @@ const Header = ({ children }) => {
                                 <PageLinks />
                             </ul>
                         </div>
-                        <div className="flex items-center justify-between basis-[200px] lg:basis-[320px] relative">
+                        <div className="flex items-center justify-between basis-[200px] lg:basis-[280px] relative">
                             <span
                                 onClick={handleCartToggle}
-                                className="inline-flex items-center cursor-pointer"
+                                className="inline-flex items-center cursor-pointer relative"
                             >
+                                <span className="badge badge-sm badge-primary text-white absolute left-2 -top-2">{cartTotal(cart)}</span>
                                 <FiShoppingCart className="text-lg" />
                                 <span className="text-md ml-2">Cart</span>
                             </span>
@@ -93,7 +105,7 @@ const Header = ({ children }) => {
                                     onClick={() => navigate("/login")}
                                     className="hidden lg:inline-flex items-center cursor-pointer relative">
                                     <RxAvatar className="text-lg" />
-                                    <span className="text-md ml-2">Login/Register</span>
+                                    <span className="text-md ml-2">Login</span>
                                 </span>
                             )}
                             {toggleSearch && (
@@ -101,7 +113,7 @@ const Header = ({ children }) => {
                                     setToggleSearch={setToggleSearch}
                                 />
                             )}
-                            <div ref={cartRef} className="bg-white w-[320px] h-screen absolute -top-[20px] -right-[2000px] shadow-md z-50 overflow-y-scroll">
+                            <div ref={cartRef} className="bg-base-300 w-[320px] h-screen absolute -top-[20px] -right-[2000px] shadow-md z-50 overflow-y-scroll">
                                 <Cart handleCartToggle={handleCartToggle} />
                             </div>
                             <div className="flex-none lg:hidden">
@@ -126,8 +138,8 @@ const Header = ({ children }) => {
                             </div>
                         ) : (
                             <div
-                            onClick={() => navigate("/login")}
-                            className="flex mt-3 items-center cursor-pointer">
+                                onClick={() => navigate("/login")}
+                                className="flex mt-3 items-center cursor-pointer">
                                 <RxAvatar className="text-lg" />
                                 <span className="text-md ml-2">Login/Register</span>
                             </div>

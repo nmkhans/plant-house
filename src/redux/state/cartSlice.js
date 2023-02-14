@@ -16,7 +16,7 @@ function loadTotal() {
     let cart = loadCart()
     let total = 0;
     for (let item in cart) {
-        total = cart[item].quantity * cart[item].price
+        total += cart[item].quantity * cart[item].price
     }
     return total
 }
@@ -42,7 +42,9 @@ export const cartSlice = createSlice({
 
             let total = 0;
             for (let item in newCart) {
-                total = newCart[item].quantity * newCart[item].price
+                total += newCart[item].quantity * newCart[item].price
+                console.log(item)
+                console.log(newCart[item].quantity * newCart[item].price)
             }
 
             state.value = newCart
@@ -63,7 +65,7 @@ export const cartSlice = createSlice({
 
             let total = 0;
             for (let item in newCart) {
-                total = newCart[item].quantity * newCart[item].price
+                total += newCart[item].quantity * newCart[item].price
             }
 
             state.value = newCart

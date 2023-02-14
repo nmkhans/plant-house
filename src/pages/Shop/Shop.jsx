@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useGetAllProductsQuery } from '../../redux/api/api';
 import Product from './../../components/Product/Product';
-import { LineWave } from 'react-loader-spinner'
 import { genButton } from '../../utils/paginationButton';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Shop = () => {
     const [query, setQuery] = useState({
@@ -11,22 +11,7 @@ const Shop = () => {
     })
     const { data, isLoading } = useGetAllProductsQuery(query)
 
-    if (isLoading) {
-        return (
-            <LineWave
-                height="100"
-                width="100"
-                color="#4fa94d"
-                ariaLabel="line-wave"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-                firstLineColor=""
-                middleLineColor=""
-                lastLineColor=""
-            />
-        )
-    }
+    if (isLoading) return <Spinner />
 
     const products = data?.data
     const count = data?.count

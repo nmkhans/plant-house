@@ -34,6 +34,11 @@ export const api = createApi({
                 method: "GET"
             })
         }),
+        getProductsByCategory: builder.query({
+            query: ({ pageno, perpage, category }) => ({
+                url: `/product/filter/category?pageno=${pageno}&perpage=${perpage}&category=${category}`
+            })
+        })
     })
 })
 
@@ -42,5 +47,6 @@ export const {
     useLoginUserMutation,
     useUploadImageMutation,
     useGetCategoriesQuery,
-    useGetAllProductsQuery
+    useGetAllProductsQuery,
+    useGetProductsByCategoryQuery
 } = api

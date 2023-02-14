@@ -10,7 +10,7 @@ const publicRoutes = [
     { name: "Login", path: "/login", Element: Login },
     { name: "Register", path: "/register", Element: Register },
     { name: "Shop", path: "/shop", Element: Shop },
-    { name: "Category", path: "/category/:id", Element: Category },
+    { name: "Category", path: "/category/:category", Element: Category },
     { name: "Search", path: "/search/:id", Element: Search },
 ]
 

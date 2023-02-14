@@ -21,7 +21,7 @@ const Cart = ({ handleCartToggle }) => {
             </div>
             <div className="my-10">
                 {Object.keys(cart).length !== 0 ? (
-                    Object.keys(cart).map(keys => <CartItem  item={cart[keys]} />)
+                    Object.keys(cart).map(keys => <CartItem key={keys} item={cart[keys]} />)
                 ) : "no item on cart"}
             </div>
             <div>

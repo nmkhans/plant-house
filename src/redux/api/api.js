@@ -30,13 +30,17 @@ export const api = createApi({
         }),
         getAllProducts: builder.query({
             query: ({ pageno, perpage }) => ({
-                url: `/product/all?pageno=${pageno}&perpage=${perpage}`,
-                method: "GET"
+                url: `/product/all?pageno=${pageno}&perpage=${perpage}`
             })
         }),
         getProductsByCategory: builder.query({
             query: ({ pageno, perpage, category }) => ({
                 url: `/product/filter/category?pageno=${pageno}&perpage=${perpage}&category=${category}`
+            })
+        }),
+        getProductBySearch: builder.query({
+            query: ({ pageno, perpage, search }) => ({
+                url: `/product/filter/search?pageno=${pageno}&perpage=${perpage}&search=${search}`
             })
         })
     })
@@ -48,5 +52,6 @@ export const {
     useUploadImageMutation,
     useGetCategoriesQuery,
     useGetAllProductsQuery,
-    useGetProductsByCategoryQuery
+    useGetProductsByCategoryQuery,
+    useGetProductBySearchQuery
 } = api

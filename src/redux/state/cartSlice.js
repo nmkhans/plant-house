@@ -43,8 +43,6 @@ export const cartSlice = createSlice({
             let total = 0;
             for (let item in newCart) {
                 total += newCart[item].quantity * newCart[item].price
-                console.log(item)
-                console.log(newCart[item].quantity * newCart[item].price)
             }
 
             state.value = newCart

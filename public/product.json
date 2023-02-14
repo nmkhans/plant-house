@@ -1,0 +1,162 @@
+[
+    {
+        "name": "Mango tree",
+        "description": "Sweet mango tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "fruit",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "Apple tree",
+        "description": "Sweet apple tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "fruit",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "Grape tree",
+        "description": "Sweet grape tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "fruit",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "Pineapple tree",
+        "description": "Sweet pineapple tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "fruit",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "Dragon tree",
+        "description": "Sweet dragon tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "fruit",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "Rose tree",
+        "description": "Sweet rose tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "flower",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "Belli tree",
+        "description": "Sweet belli tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "flower",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "togor tree",
+        "description": "Sweet togor tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "flower",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "sapla tree",
+        "description": "Sweet sapla tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "flower",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "joba tree",
+        "description": "Sweet joba tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "flower",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "segun tree",
+        "description": "Sweet segun tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "outdoor",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "meheguni tree",
+        "description": "Sweet meheguni tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "outdoor",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "bamboo tree",
+        "description": "Sweet bamboo tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "outdoor",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "sundori tree",
+        "description": "Sweet sundori tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "outdoor",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "sal tree",
+        "description": "Sweet sal tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "outdoor",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "tulsi tree",
+        "description": "Sweet tulsi tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "medic",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "basok tree",
+        "description": "Sweet basok tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "medic",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "mehedi tree",
+        "description": "Sweet mehedi tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "medic",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "alovera tree",
+        "description": "Sweet alovera tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "medic",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    },
+    {
+        "name": "mint tree",
+        "description": "Sweet mint tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
+        "category": "medic",
+        "price": "1000",
+        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "stock": "20"
+    }
+]

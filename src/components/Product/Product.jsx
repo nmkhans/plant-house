@@ -7,8 +7,6 @@ const Product = ({ product }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-
-
     return (
         <div className="card border bg-base-100 shadow-xl">
             <figure>
@@ -18,7 +16,7 @@ const Product = ({ product }) => {
                 <h2 className="card-title">{product.name}</h2>
                 <p>price: {product.price} TK</p>
                 <p>category: {product.category}</p>
-                <p>In stock: {product.stock !== 0 ? product.stock : "Out of stock"}</p>
+                <p>In stock: {product.stock !== 0 ? product.stock : <span className="text-red-500">Out of stock</span>}</p>
                 <div className="flex w-full">
                     <button
                         onClick={() => navigate(`/product/${product._id}`)}

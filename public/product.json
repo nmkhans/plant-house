@@ -4,7 +4,7 @@
         "description": "Sweet mango tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "fruit",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -12,7 +12,7 @@
         "description": "Sweet apple tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "fruit",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -20,7 +20,7 @@
         "description": "Sweet grape tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "fruit",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -28,7 +28,7 @@
         "description": "Sweet pineapple tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "fruit",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -36,7 +36,7 @@
         "description": "Sweet dragon tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "fruit",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -44,7 +44,7 @@
         "description": "Sweet rose tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "flower",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -52,7 +52,7 @@
         "description": "Sweet belli tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "flower",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -60,7 +60,7 @@
         "description": "Sweet togor tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "flower",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -68,7 +68,7 @@
         "description": "Sweet sapla tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "flower",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -76,7 +76,7 @@
         "description": "Sweet joba tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "flower",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -84,7 +84,7 @@
         "description": "Sweet segun tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "outdoor",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -92,7 +92,7 @@
         "description": "Sweet meheguni tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "outdoor",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -100,7 +100,7 @@
         "description": "Sweet bamboo tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "outdoor",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -108,7 +108,7 @@
         "description": "Sweet sundori tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "outdoor",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -116,7 +116,7 @@
         "description": "Sweet sal tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "outdoor",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -124,7 +124,7 @@
         "description": "Sweet tulsi tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "medic",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -132,7 +132,7 @@
         "description": "Sweet basok tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "medic",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -140,7 +140,7 @@
         "description": "Sweet mehedi tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "medic",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -148,7 +148,7 @@
         "description": "Sweet alovera tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "medic",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     },
     {
@@ -156,7 +156,7 @@
         "description": "Sweet mint tree from rajshahi, 100% authentic and fresh. super sweet fruit guranteed",
         "category": "medic",
         "price": "1000",
-        "image": "http://localhost:5000/public/1676217493633plant.webp",
+        "image": "https://nmk-plant-house-backend.onrender.com/public/1676217493633plant.webp",
         "stock": "20"
     }
 ]

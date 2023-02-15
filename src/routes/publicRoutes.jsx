@@ -4,6 +4,7 @@ import Search from './../pages/Search/Search';
 import Shop from './../pages/Shop/Shop';
 import Login from './../pages/Login/Login';
 import Register from '../pages/Register/Register';
+import ProductDetail from './../pages/ProductDetail/ProductDetail';
 
 const publicRoutes = [
     { name: "Home", path: "/", Element: Home },
@@ -12,6 +13,7 @@ const publicRoutes = [
     { name: "Shop", path: "/shop", Element: Shop },
     { name: "Category", path: "/category/:category", Element: Category },
     { name: "Search", path: "/search/:search", Element: Search },
+    { name: "ProductDetail", path: "/product/:id", Element: ProductDetail },
 ]
 
 export default publicRoutes;

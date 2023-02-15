@@ -11,7 +11,7 @@ const AllProducts = () => {
     const { data, isLoading } = useGetAllProductsQuery(query)
     const products = data?.data;
 
-    if(isLoading) return <Spinner />
+    if (isLoading) return <Spinner />
 
     return (
         <section className="py-10">

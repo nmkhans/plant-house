@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux';
 import CartItem from '../CartItem/CartItem';
 import { useDispatch } from 'react-redux';
 import { emptyCart } from '../../redux/state/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = ({ handleCartToggle }) => {
     const cart = useSelector(state => state.cart.value)
     const subTotal = useSelector(state => state.cart.subTotal)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
 
     return (
@@ -27,7 +29,9 @@ const Cart = ({ handleCartToggle }) => {
             <div>
                 <h3>Sub total: {subTotal}</h3>
                 <div className="my-5">
-                    <button className="btn btn-primary text-white mr-5">Checkout</button>
+                    <button
+                    onClick={() => navigate("/checkout")}
+                    className="btn btn-primary text-white mr-5">Checkout</button>
                     <button
                     onClick={() => dispatch(emptyCart())}
                         className="btn btn-primary text-white">

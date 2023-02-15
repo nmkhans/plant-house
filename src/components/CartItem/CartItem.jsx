@@ -7,7 +7,7 @@ const CartItem = ({ item }) => {
     
     return (
         <div>
-            <div className="flex items-center mb-5">
+            <div className="flex justify-center items-center mb-5">
                 <div className="avatar">
                     <div className="w-16 rounded relative">
                         <span className="badge badge-sm badge-primary text-white absolute right-0">{item.quantity}</span>
@@ -19,10 +19,12 @@ const CartItem = ({ item }) => {
                 </div>
                 <div className="flex items-center ml-3">
                     <button
+                    type="button"
                     onClick={() => dispatch(removeFromCart(item._id))}
                     className="badge badge-md btn-primary rounded-lg text-white mr-1">-</button>
                     <span>{item.quantity}</span>
                     <button
+                    type="button"
                     onClick={() => dispatch(addToCart(item))}
                     className="badge badge-md btn-primary rounded-lg text-white ml-1">+</button>
                 </div>

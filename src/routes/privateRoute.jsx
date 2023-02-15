@@ -1,7 +1,7 @@
-import ProductDetail from './../pages/ProductDetail/ProductDetail';
+import Checkout from './../pages/Checkout/Checkout';
 
 const privateRoutes = [
-    { name: "ProductDetail", path: "/product/:id", Element: ProductDetail },
+    { name: "Checkout", path: "/checkout", Element: Checkout },
 ]
 
 export default privateRoutes;

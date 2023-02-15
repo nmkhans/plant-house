@@ -3,7 +3,7 @@ import { LineWave } from 'react-loader-spinner'
 
 const Spinner = () => {
     return (
-        <div className="text-center mx-auto">
+        <div className="text-center flex items-center w-full">
             <LineWave
                 height="400"
                 width="400"

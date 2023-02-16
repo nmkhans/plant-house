@@ -7,6 +7,10 @@ import Footer from './components/Footer/Footer';
 import publicRoutes from './routes/publicRoutes';
 import privateRoutes from './routes/privateRoute';
 import { Toaster } from 'react-hot-toast';
+import AdminDashboard from './pages/AdminDashboard/AdminDashboard';
+import Admin from './pages/Admin/Admin';
+import AdminRoute from './components/AdminRoute/AdminRoute';
+import adminRoute from './routes/adminRoute';
 
 function App() {
   return (
@@ -20,6 +24,12 @@ function App() {
               <Element />
             </RequireAuth>
           } />)}
+
+          <Route path="/admin" element={<Admin />}>
+            {adminRoute.map(({ name, path, Element }) => <Route key={name} path={path} element={<AdminRoute>
+              <Element />
+            </AdminRoute>} />)}
+          </Route>
         </Routes>
         <Footer />
       </Header>

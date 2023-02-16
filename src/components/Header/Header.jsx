@@ -9,10 +9,11 @@ import logo from "../../assets/logo.png"
 import Cart from '../cart/Cart';
 import SearchBox from '../SearchBox/SearchBox';
 import AccountMenu from '../AccountMenu/AccountMenu';
+import { useAuthUser } from 'react-auth-kit'
 
 function cartTotal(cart) {
     let quantity = 0
-    for(let item in cart) {
+    for (let item in cart) {
         quantity += cart[item].quantity
     }
 
@@ -26,6 +27,8 @@ const Header = ({ children }) => {
     const cart = useSelector(state => state.cart.value)
     const isAuthenticated = useIsAuthenticated()
     const navigate = useNavigate()
+    const auth = useAuthUser()
+    const user = auth()
 
     const PageLinks = () => {
         return (
@@ -144,7 +147,9 @@ const Header = ({ children }) => {
                                 <span className="text-md ml-2">Login/Register</span>
                             </div>
                         )}
-
+                        {user?.role === "admin" && (
+                            <label htmlFor="admin-sidebar" className="btn btn-primary drawer-button lg:hidden mt-5 text-white">Dashboard menu</label>
+                        )}
                     </ul>
                 </div>
             </div>

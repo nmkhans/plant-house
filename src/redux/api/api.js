@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const api = createApi({
     reducerPath: "api",
-    baseQuery: fetchBaseQuery({ baseUrl: "https://nmk-plant-house-backend.onrender.com/api/v1" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
     endpoints: (builder) => ({
         registerUser: builder.mutation({
             query: (data) => ({
@@ -28,6 +28,9 @@ export const api = createApi({
         getCategories: builder.query({
             query: () => "/categories"
         }),
+        getSingleProduct: builder.query({
+            query: (id) => `/product/${id}`
+        }),
         getAllProducts: builder.query({
             query: ({ pageno, perpage }) => ({
                 url: `/product/all?pageno=${pageno}&perpage=${perpage}`
@@ -51,6 +54,7 @@ export const {
     useLoginUserMutation,
     useUploadImageMutation,
     useGetCategoriesQuery,
+    useGetSingleProductQuery,
     useGetAllProductsQuery,
     useGetProductsByCategoryQuery,
     useGetProductBySearchQuery

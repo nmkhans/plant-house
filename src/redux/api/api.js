@@ -45,6 +45,13 @@ export const api = createApi({
             query: ({ pageno, perpage, search }) => ({
                 url: `/product/filter/search?pageno=${pageno}&perpage=${perpage}&search=${search}`
             })
+        }),
+        createOrder: builder.mutation({
+            query: (data) => ({
+                url: "/order/create",
+                method: "POST",
+                body: data
+            })
         })
     })
 })
@@ -57,5 +64,6 @@ export const {
     useGetSingleProductQuery,
     useGetAllProductsQuery,
     useGetProductsByCategoryQuery,
-    useGetProductBySearchQuery
+    useGetProductBySearchQuery,
+    useCreateOrderMutation
 } = api

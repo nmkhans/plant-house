@@ -14,7 +14,6 @@ const ProductDetail = () => {
     if (isLoading) return <Spinner />
 
     const product = data?.data[0]
-    console.log(product)
 
     return (
         <main className="py-5">

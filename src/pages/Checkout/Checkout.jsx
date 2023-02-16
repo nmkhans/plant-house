@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import toast from 'react-hot-toast';
 import { TailSpin } from 'react-loader-spinner'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import CartItem from './../../components/CartItem/CartItem';
 import { useAuthUser } from 'react-auth-kit'
+import { useCreateOrderMutation } from '../../redux/api/api';
+import { emptyCart } from '../../redux/state/cartSlice';
 
 const Checkout = () => {
     const cart = useSelector(state => state.cart.value)
     const subTotal = useSelector(state => state.cart.subTotal)
     const [agree, setAgree] = useState(false)
     const { register, handleSubmit, formState: { errors } } = useForm()
+    const [createOrder, { isLoading }] = useCreateOrderMutation()
     const navigate = useNavigate()
     const auth = useAuthUser()
     const user = auth()
+    const dispatch = useDispatch()
 
     const shipping = (subTotal / 100) * 10;
 
@@ -41,19 +45,23 @@ const Checkout = () => {
 
         }
 
-        console.log(orderData)
+        const response = await createOrder(orderData)
+        console.log(response)
 
-        /* if (response?.data?.success) {
-            
+        if (response?.data?.success) {
+            dispatch(emptyCart())
             navigate("/")
             toast.success(response?.data?.message, {
+                position: "bottom-center"
+            })
+            toast.success("Check your email for order related information", {
                 position: "bottom-center"
             })
         } else {
             toast.error(response?.error?.data?.message, {
                 position: "bottom-center"
             })
-        } */
+        }
     }
 
     return (
@@ -115,7 +123,14 @@ const Checkout = () => {
                                     </div>
                                 </div>
                                 <div className="mt-5">
-                                    <button disabled={agree === false} type="submit" className="btn btn-primary text-white w-full">Place order</button>
+                                    <button disabled={agree === false} type="submit" className="btn btn-primary text-white w-full">{isLoading ? <TailSpin
+                                        height="30"
+                                        width="30"
+                                        color="#fff"
+                                        ariaLabel="tail-spin-loading"
+                                        radius="1"
+                                        visible={true}
+                                    /> : "Place order"}</button>
                                 </div>
                             </div>
                             <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
@@ -220,7 +235,6 @@ const Checkout = () => {
                                         ></textarea>
                                         <p className="text-sm text-red-600 mt-2 ml-3">{errors?.address?.type === 'required' && errors?.address?.message}</p>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

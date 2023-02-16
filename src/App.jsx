@@ -7,7 +7,6 @@ import Footer from './components/Footer/Footer';
 import publicRoutes from './routes/publicRoutes';
 import privateRoutes from './routes/privateRoute';
 import { Toaster } from 'react-hot-toast';
-import AdminDashboard from './pages/AdminDashboard/AdminDashboard';
 import Admin from './pages/Admin/Admin';
 import AdminRoute from './components/AdminRoute/AdminRoute';
 import adminRoute from './routes/adminRoute';

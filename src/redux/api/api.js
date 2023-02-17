@@ -52,6 +52,9 @@ export const api = createApi({
                 method: "POST",
                 body: data
             })
+        }),
+        getAllOrder: builder.query({
+            query: () => "/order/all"
         })
     })
 })
@@ -65,5 +68,6 @@ export const {
     useGetAllProductsQuery,
     useGetProductsByCategoryQuery,
     useGetProductBySearchQuery,
-    useCreateOrderMutation
+    useCreateOrderMutation,
+    useGetAllOrderQuery
 } = api

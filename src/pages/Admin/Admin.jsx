@@ -4,10 +4,10 @@ import { Outlet, Link } from 'react-router-dom';
 const Admin = () => {
     return (
         <main className="py-5">
-            <div className="container mx-auto px-5 lg:max-w-6xl">
+            <div className="container mx-auto px-5">
                 <div className="drawer drawer-mobile">
                     <input id="admin-sidebar" type="checkbox" className="drawer-toggle" />
-                    <div className="drawer-content flex flex-col items-center justify-center">
+                    <div className="drawer-content">
                         <Outlet /> 
                     </div>
                     <div className="drawer-side">

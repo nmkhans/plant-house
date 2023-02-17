@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthUser } from 'react-auth-kit'
 import { useSignOut } from 'react-auth-kit'
+import { Link } from 'react-router-dom';
 
 const AccountMenu = () => {
     const auth = useAuthUser()
@@ -19,6 +20,9 @@ const AccountMenu = () => {
             </div>
             <div>
                 <ul className="text-center mt-3">
+                    <li className="p-2 cursor-pointer">
+                        <Link to="/admin">Admin</Link>
+                    </li>
                     <li className="p-2 cursor-pointer">Dashboard</li>
                     <li
                         onClick={() => signOut()}

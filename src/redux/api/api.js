@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 export const api = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
-    tagTypes: ["order"],
+    tagTypes: ["products", "order"],
     endpoints: (builder) => ({
         registerUser: builder.mutation({
             query: (data) => ({
@@ -55,12 +55,28 @@ export const api = createApi({
             })
         }),
         getAllOrder: builder.query({
-            query: () => "/order/all"
+            query: () => "/order/all",
+            providesTags: ["order"]
         }),
         confirmPayment: builder.mutation({
             query: (id) => ({
                 url: `/order/confirm-payment/${id}`,
                 method: "PATCH"
+            }),
+            invalidatesTags: ["order"]
+        }),
+        updateStatus: builder.mutation({
+            query: ({ id, value }) => ({
+                url: `/order/update-status/${id}`,
+                method: "PATCH",
+                body: { status: value }
+            }),
+            invalidatesTags: ["order"]
+        }),
+        deleteOrder: builder.mutation({
+            query: (id) => ({
+                url: `/order/delete/${id}`,
+                method: "DELETE"
             }),
             invalidatesTags: ["order"]
         })
@@ -78,5 +94,7 @@ export const {
     useGetProductBySearchQuery,
     useCreateOrderMutation,
     useGetAllOrderQuery,
-    useConfirmPaymentMutation
+    useConfirmPaymentMutation,
+    useUpdateStatusMutation,
+    useDeleteOrderMutation
 } = api

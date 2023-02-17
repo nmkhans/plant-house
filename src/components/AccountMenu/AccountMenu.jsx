@@ -20,9 +20,11 @@ const AccountMenu = () => {
             </div>
             <div>
                 <ul className="text-center mt-3">
-                    <li className="p-2 cursor-pointer">
-                        <Link to="/admin">Admin</Link>
-                    </li>
+                    {user?.role === "admin" && (
+                        <li className="p-2 cursor-pointer">
+                            <Link to="/admin">Admin</Link>
+                        </li>
+                    )}
                     <li className="p-2 cursor-pointer">
                         <Link to="/user">Dashboard</Link>
                     </li>

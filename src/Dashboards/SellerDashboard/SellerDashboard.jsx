@@ -1,13 +1,38 @@
 import React from 'react';
-import { useGetAllOrderQuery } from '../../redux/api/api';
+import { useConfirmPaymentMutation, useGetAllOrderQuery } from '../../redux/api/api';
 import { FiEdit, FiTrash } from "react-icons/fi"
+import Swal from 'sweetalert2'
 
-const AdminOrders = () => {
+const SellerDashboard = () => {
     const { data, isLoading } = useGetAllOrderQuery()
+    const [confirmPayment] = useConfirmPaymentMutation()
 
     if (isLoading) return "Loading..."
 
     const orders = data?.data;
+
+    const handlePayment = async (id) => {
+        Swal.fire({
+            title: 'Confirm payment!',
+            text: "You are confirming payment for this order.",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#8abe53',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, confirm it!'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                const response = await confirmPayment(id)
+                if (response?.data?.success) {
+                    Swal.fire(
+                        'Done!',
+                        'Payment has been completed.',
+                        'success'
+                    )
+                }
+            }
+        })
+    }
 
     return (
         <div className="p-5">
@@ -39,9 +64,8 @@ const AdminOrders = () => {
                                         {order.status === "pending" ? <span className="badge badge-warning text-white">{order.status}</span> : <span className="badge badge-success text-white">{order.status}</span>}
                                     </td>
                                     <td>{order.paid ? <span className="badge badge-info text-white">paid</span> : <span className="badge badge-error text-white">unpaid</span>}</td>
-                                    <td className="flex items-center">
-                                        <span className="p-2 cursor-pointer text-warning"><FiEdit /></span>
-                                        <span className="p-2 cursor-pointer text-error"><FiTrash /></span>
+                                    <td onClick={() => handlePayment(order._id)}>
+                                        <span className="p-2 cursor-pointer text-white btn btn-success btn-sm">Pay</span>
                                     </td>
                                 </tr>
                             ))}
@@ -53,4 +77,4 @@ const AdminOrders = () => {
     );
 };
 
-export default AdminOrders;
+export default SellerDashboard;

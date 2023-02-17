@@ -23,7 +23,9 @@ const AccountMenu = () => {
                     <li className="p-2 cursor-pointer">
                         <Link to="/admin">Admin</Link>
                     </li>
-                    <li className="p-2 cursor-pointer">Dashboard</li>
+                    <li className="p-2 cursor-pointer">
+                        <Link to="/user">Dashboard</Link>
+                    </li>
                     <li
                         onClick={() => signOut()}
                         className="p-2 cursor-pointer"

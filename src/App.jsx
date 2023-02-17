@@ -10,6 +10,9 @@ import { Toaster } from 'react-hot-toast';
 import Admin from './pages/Admin/Admin';
 import AdminRoute from './components/AdminRoute/AdminRoute';
 import adminRoute from './routes/adminRoute';
+import User from './pages/User/User';
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
+import userRoutes from './routes/userRoute';
 
 function App() {
   return (
@@ -28,6 +31,10 @@ function App() {
             {adminRoute.map(({ name, path, Element }) => <Route key={name} path={path} element={<AdminRoute>
               <Element />
             </AdminRoute>} />)}
+          </Route>
+
+          <Route path="/user" element={<User />}>
+            {userRoutes.map(({name, path, Element}) => <Route key={name} path={path} element={<Element />} />)}
           </Route>
         </Routes>
         <Footer />

@@ -6,7 +6,7 @@ const UserRoute = ({ children }) => {
     const auth = useAuthUser()
     const user = auth()
     
-    if(user?.role === "user") {
+    if((user?.role === "user") || (user?.role === "admin")) {
         return children
     } else {
         return <Navigate to="/" replace={true} />

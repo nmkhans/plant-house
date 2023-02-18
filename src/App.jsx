@@ -11,8 +11,8 @@ import Admin from './pages/Admin/Admin';
 import AdminRoute from './components/AdminRoute/AdminRoute';
 import adminRoute from './routes/adminRoute';
 import User from './pages/User/User';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 import userRoutes from './routes/userRoute';
+import UserRoute from './components/UserRoute.jsx/UserRoute';
 
 function App() {
   return (
@@ -27,14 +27,20 @@ function App() {
             </RequireAuth>
           } />)}
 
-          <Route path="/admin" element={<Admin />}>
-            {adminRoute.map(({ name, path, Element }) => <Route key={name} path={path} element={<AdminRoute>
-              <Element />
-            </AdminRoute>} />)}
+          <Route path="/admin" element={
+            <AdminRoute>
+              <Admin />
+            </AdminRoute>
+          }>
+            {adminRoute.map(({ name, path, Element }) => <Route key={name} path={path} element={<Element />} />)}
           </Route>
 
-          <Route path="/user" element={<User />}>
-            {userRoutes.map(({name, path, Element}) => <Route key={name} path={path} element={<Element />} />)}
+          <Route path="/user" element={
+            <UserRoute>
+              <User />
+            </UserRoute>
+          }>
+            {userRoutes.map(({ name, path, Element }) => <Route key={name} path={path} element={<Element />} />)}
           </Route>
         </Routes>
         <Footer />

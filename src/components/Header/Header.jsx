@@ -150,6 +150,9 @@ const Header = ({ children }) => {
                         {user?.role === "admin" && (
                             <label htmlFor="admin-sidebar" className="btn btn-primary drawer-button lg:hidden mt-5 text-white">Dashboard menu</label>
                         )}
+                        {user?.role === "user" && (
+                            <label htmlFor="user-sidebar" className="btn btn-primary drawer-button lg:hidden mt-5 text-white">Dashboard menu</label>
+                        )}
                     </ul>
                 </div>
             </div>

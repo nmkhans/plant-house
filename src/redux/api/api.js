@@ -47,16 +47,21 @@ export const api = createApi({
                 url: `/product/filter/search?pageno=${pageno}&perpage=${perpage}&search=${search}`
             })
         }),
+        getAllOrder: builder.query({
+            query: () => "/order/all",
+            providesTags: ["order"]
+        }),
+        getOrderByEmail: builder.query({
+            query: (email) => `/order/user/${email}`,
+            providesTags: ["order"]
+        }),
         createOrder: builder.mutation({
             query: (data) => ({
                 url: "/order/create",
                 method: "POST",
                 body: data
-            })
-        }),
-        getAllOrder: builder.query({
-            query: () => "/order/all",
-            providesTags: ["order"]
+            }),
+            invalidatesTags: ["order"]
         }),
         confirmPayment: builder.mutation({
             query: (id) => ({
@@ -96,5 +101,6 @@ export const {
     useGetAllOrderQuery,
     useConfirmPaymentMutation,
     useUpdateStatusMutation,
-    useDeleteOrderMutation
+    useDeleteOrderMutation,
+    useGetOrderByEmailQuery
 } = api

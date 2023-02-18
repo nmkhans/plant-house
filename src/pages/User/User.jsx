@@ -20,6 +20,9 @@ const User = () => {
                             <li>
                                 <Link to="dashboard">Dashboard</Link>
                             </li>
+                            <li>
+                                <Link to="order">Orders</Link>
+                            </li>
                             {user?.seller && (
                                 <li>
                                     <Link to="seller-dashboard">Seller Dashboard</Link>

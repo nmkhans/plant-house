@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import RestockModal from '../../components/RestockModal/RestockModal';
-import { useGetAllProductsQuery } from '../../redux/api/api';
+import { useGetAllProductsQuery, useDeleteProductMutation } from '../../redux/api/api';
 import { genButton } from '../../utils/paginationButton';
+import Swal from 'sweetalert2';
 
 const AdminProducts = () => {
     const [query, setQuery] = useState({
@@ -10,6 +11,7 @@ const AdminProducts = () => {
     })
     const [id, setId] = useState("")
     const { data, isLoading } = useGetAllProductsQuery(query)
+    const [deleteProduct] = useDeleteProductMutation()
 
     if (isLoading) return "Loading..."
 
@@ -23,6 +25,29 @@ const AdminProducts = () => {
             ...prev,
             pageno: element
         }))
+    }
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#8abe53',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+
+                await deleteProduct(id)
+
+                Swal.fire(
+                    'Deleted!',
+                    'Your product has been deleted.',
+                    'success'
+                )
+            }
+        })
     }
 
     return (
@@ -63,9 +88,11 @@ const AdminProducts = () => {
                                     <td>{product.stock === 0 ? <span className=" badge badge-sm badge-error text-white">Out of stock</span> : <span>{product.stock} Pice</span>}</td>
                                     <td>
                                         <label
-                                        onClick={() => setId(product._id)}
-                                        htmlFor="restock-modal" className="btn btn-sm btn-success mr-3 text-white">Restock</label>
-                                        <button className="btn btn-sm btn-error text-white">Delete</button>
+                                            onClick={() => setId(product._id)}
+                                            htmlFor="restock-modal" className="btn btn-sm btn-success mr-3 text-white">Restock</label>
+                                        <button
+                                            onClick={() => handleDelete(product._id)}
+                                            className="btn btn-sm btn-error text-white">Delete</button>
                                     </td>
                                 </tr>
                             ))}

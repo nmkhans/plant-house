@@ -93,6 +93,13 @@ export const api = createApi({
                 body: { amount }
             }),
             invalidatesTags: ["products"]
+        }),
+        deleteProduct: builder.mutation({
+            query: (id) => ({
+                url: `/product/delete/${id}`,
+                method: "DELETE"
+            }),
+            invalidatesTags: ["products"]
         })
     })
 })
@@ -112,5 +119,6 @@ export const {
     useUpdateStatusMutation,
     useDeleteOrderMutation,
     useGetOrderByEmailQuery,
-    useRestockProductMutation
+    useRestockProductMutation,
+    useDeleteProductMutation
 } = api

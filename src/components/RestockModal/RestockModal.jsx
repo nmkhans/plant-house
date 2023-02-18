@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useGetSingleProductQuery, useRestockProductMutation } from '../../redux/api/api';
+import toast from 'react-hot-toast';
 
 const RestockModal = ({ id }) => {
-    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const { data, isLoading } = useGetSingleProductQuery(id)
     const [restockProduct] = useRestockProductMutation()
     const buttonRef = useRef(null)
@@ -14,9 +15,22 @@ const RestockModal = ({ id }) => {
 
 
     const onSubmit = async ({ amount }) => {
+        const newStock = parseInt(prevStock) + parseInt(amount)
 
-        const response = await restockProduct({ id, amount })
-        console.log(response)
+        const response = await restockProduct({ id, amount: newStock })
+        if (response.data.success)
+            if (response?.data?.success) {
+
+                reset()
+                toast.success(response?.data?.message, {
+                    position: "bottom-center"
+                })
+            } else {
+                toast.error(response?.error?.data?.message, {
+                    position: "bottom-center"
+                })
+            }
+
         buttonRef.current.click()
     }
 

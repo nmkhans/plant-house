@@ -46,7 +46,6 @@ const Checkout = () => {
         }
 
         const response = await createOrder(orderData)
-        console.log(response)
 
         if (response?.data?.success) {
             dispatch(emptyCart())

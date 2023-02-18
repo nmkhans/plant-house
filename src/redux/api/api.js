@@ -35,7 +35,8 @@ export const api = createApi({
         getAllProducts: builder.query({
             query: ({ pageno, perpage }) => ({
                 url: `/product/all?pageno=${pageno}&perpage=${perpage}`
-            })
+            }),
+            providesTags: ["products"]
         }),
         getProductsByCategory: builder.query({
             query: ({ pageno, perpage, category }) => ({
@@ -84,6 +85,14 @@ export const api = createApi({
                 method: "DELETE"
             }),
             invalidatesTags: ["order"]
+        }),
+        restockProduct: builder.mutation({
+            query: ({ id, amount }) => ({
+                url: `/product/restock/${id}`,
+                method: "PATCH",
+                body: { amount }
+            }),
+            invalidatesTags: ["products"]
         })
     })
 })
@@ -102,5 +111,6 @@ export const {
     useConfirmPaymentMutation,
     useUpdateStatusMutation,
     useDeleteOrderMutation,
-    useGetOrderByEmailQuery
+    useGetOrderByEmailQuery,
+    useRestockProductMutation
 } = api

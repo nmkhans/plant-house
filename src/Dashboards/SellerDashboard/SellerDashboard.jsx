@@ -64,8 +64,11 @@ const SellerDashboard = () => {
                                         {order.status === "pending" ? <span className="badge badge-warning text-white">{order.status}</span> : <span className="badge badge-success text-white">{order.status}</span>}
                                     </td>
                                     <td>{order.paid ? <span className="badge badge-info text-white">paid</span> : <span className="badge badge-error text-white">unpaid</span>}</td>
-                                    <td onClick={() => handlePayment(order._id)}>
-                                        <span className="p-2 cursor-pointer text-white btn btn-success btn-sm">Pay</span>
+                                    <td>
+                                        <button
+                                            onClick={() => handlePayment(order._id)}
+                                            disabled={order.paid}
+                                            className="p-2 cursor-pointer text-white btn btn-success btn-sm">Pay</button>
                                     </td>
                                 </tr>
                             ))}

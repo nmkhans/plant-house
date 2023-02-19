@@ -25,9 +25,11 @@ const AccountMenu = () => {
                             <Link to="/admin">Admin</Link>
                         </li>
                     )}
-                    <li className="p-2 cursor-pointer">
-                        <Link to="/user">Dashboard</Link>
-                    </li>
+                    {user?.role === "seller" && (
+                        <li className="p-2 cursor-pointer">
+                            <Link to="/user">Dashboard</Link>
+                        </li>
+                    )}
                     <li
                         onClick={() => signOut()}
                         className="p-2 cursor-pointer"

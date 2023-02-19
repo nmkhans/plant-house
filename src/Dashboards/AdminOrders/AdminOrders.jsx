@@ -44,18 +44,18 @@ const AdminOrders = () => {
             confirmButtonColor: '#8abe53',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, cancel it!'
-          }).then(async (result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
                 const response = await deleteOrder(id)
-                if(response?.data?.success) {
+                if (response?.data?.success) {
                     Swal.fire(
                         'Canceled!',
                         'Order has been canceled.',
                         'success'
-                      )
+                    )
                 }
             }
-          })
+        })
     }
 
     return (
@@ -89,12 +89,13 @@ const AdminOrders = () => {
                                     </td>
                                     <td>{order.paid ? <span className="badge badge-info text-white">paid</span> : <span className="badge badge-error text-white">unpaid</span>}</td>
                                     <td className="flex items-center">
-                                        <span
+                                        <button
+                                            disabled={order.status === "delivered"}
                                             onClick={() => handleStatusUpdate(order._id)}
-                                            className="p-2 cursor-pointer text-warning"><FiEdit /></span>
-                                        <span
-                                        onClick={() => handleCancel(order._id)}
-                                        className="p-2 cursor-pointer text-error"><FiTrash /></span>
+                                            className={`p-2 cursor-pointer ${order.status === "delivered" ? "text-gray-400" : "text-warning"}`}><FiEdit /></button>
+                                        <button
+                                            onClick={() => handleCancel(order._id)}
+                                            className="p-2 cursor-pointer text-error"><FiTrash /></button>
                                     </td>
                                 </tr>
                             ))}

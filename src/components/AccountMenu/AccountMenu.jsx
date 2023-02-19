@@ -25,7 +25,7 @@ const AccountMenu = () => {
                             <Link to="/admin">Admin</Link>
                         </li>
                     )}
-                    {user?.role === "seller" && (
+                    {user?.role === "user" && (
                         <li className="p-2 cursor-pointer">
                             <Link to="/user">Dashboard</Link>
                         </li>

@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const api = createApi({
     reducerPath: "api",
-    baseQuery: fetchBaseQuery({ baseUrl: "https://nmk-plant-house-backend.onrender.com/api/v1" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
     tagTypes: ["products", "order"],
     endpoints: (builder) => ({
         registerUser: builder.mutation({
@@ -62,7 +62,7 @@ export const api = createApi({
                 method: "POST",
                 body: data
             }),
-            invalidatesTags: ["order"]
+            invalidatesTags: ["order", "products"]
         }),
         confirmPayment: builder.mutation({
             query: (id) => ({

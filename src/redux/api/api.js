@@ -152,7 +152,11 @@ export const api = createApi({
                 url: `/order/review/add/${data._id}`,
                 method: "POST",
                 body: data
-            })
+            }),
+            invalidatesTags: ["products"]
+        }),
+        getReviews: builder.query({
+            query: (id) => `/product/reviews/${id}`
         })
     })
 })
@@ -182,5 +186,6 @@ export const {
     useAdminSummeryQuery,
     useUserSummeryQuery,
     useMakeSellerMutation,
-    useAddReviewMutation
+    useAddReviewMutation,
+    useGetReviewsQuery
 } = api

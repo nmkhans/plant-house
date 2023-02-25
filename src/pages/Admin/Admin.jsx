@@ -26,6 +26,9 @@ const Admin = () => {
                 <Link to="product/create">Create Products</Link>
               </li>
               <li>
+                <Link to="categories">Category</Link>
+              </li>
+              <li>
                 <Link to="category/create">Create Category</Link>
               </li>
             </ul>

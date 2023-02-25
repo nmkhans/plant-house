@@ -38,6 +38,13 @@ export const api = createApi({
             }),
             invalidatesTags: ["category"]
         }),
+        deleteCategory: builder.mutation({
+            query: (id) => ({
+                url: `/categories/delete/${id}`,
+                method: "DELETE"
+            }),
+            invalidatesTags: ["category"]
+        }),
         createProduct: builder.mutation({
             query: (data) => ({
                 url: "/product/create",
@@ -126,6 +133,7 @@ export const {
     useUploadImageMutation,
     useGetCategoriesQuery,
     useCreateCategoryMutation,
+    useDeleteCategoryMutation,
     useCreateProductMutation,
     useGetSingleProductQuery,
     useGetAllProductsQuery,

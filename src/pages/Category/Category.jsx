@@ -5,7 +5,6 @@ import { genButton } from '../../utils/paginationButton';
 import Spinner from './../../components/Spinner/Spinner';
 import Product from './../../components/Product/Product';
 
-
 const Category = () => {
     const { category } = useParams();
     const [query, setQuery] = useState({

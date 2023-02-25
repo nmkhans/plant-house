@@ -128,9 +128,13 @@ export const api = createApi({
             }),
             invalidatesTags: ["products"]
         }),
-        summery: builder.query({
+        adminSummery: builder.query({
             query: () => "/summery",
             providesTags: ["user", "order"]
+        }),
+        userSummery: builder.query({
+            query: (email) => `/summery/${email}`,
+            providesTags: ["order"]
         }),
         makeSeller: builder.mutation({
             query: (id) => ({
@@ -163,6 +167,7 @@ export const {
     useGetOrderByEmailQuery,
     useRestockProductMutation,
     useDeleteProductMutation,
-    useSummeryQuery,
+    useAdminSummeryQuery,
+    useUserSummeryQuery,
     useMakeSellerMutation
 } = api

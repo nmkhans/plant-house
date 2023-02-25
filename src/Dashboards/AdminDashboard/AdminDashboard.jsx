@@ -1,9 +1,9 @@
 import React from "react";
 import SummeryCard from "../../components/SummeryCard/SummeryCard";
-import { useSummeryQuery } from "../../redux/api/api";
+import { useAdminSummeryQuery } from "../../redux/api/api";
 
 const AdminDashboard = () => {
-  const { data, isLoading } = useSummeryQuery();
+  const { data, isLoading } = useAdminSummeryQuery();
 
   if(isLoading) return "Loading..."
   const summery = data?.data;

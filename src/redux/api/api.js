@@ -79,6 +79,10 @@ export const api = createApi({
             query: () => "/order/all",
             providesTags: ["order"]
         }),
+        getSingleOrder: builder.query({
+            query: (id) => `/order/${id}`,
+            providesTags: ["order"]
+        }),
         getOrderByEmail: builder.query({
             query: (email) => `/order/user/${email}`,
             providesTags: ["order"]
@@ -142,6 +146,13 @@ export const api = createApi({
                 method: "PUT"
             }),
             invalidatesTags: ["user"]
+        }),
+        addReview: builder.mutation({
+            query: (data) => ({
+                url: `/order/review/add/${data._id}`,
+                method: "POST",
+                body: data
+            })
         })
     })
 })
@@ -161,6 +172,7 @@ export const {
     useGetProductBySearchQuery,
     useCreateOrderMutation,
     useGetAllOrderQuery,
+    useGetSingleOrderQuery,
     useConfirmPaymentMutation,
     useUpdateStatusMutation,
     useDeleteOrderMutation,
@@ -169,5 +181,6 @@ export const {
     useDeleteProductMutation,
     useAdminSummeryQuery,
     useUserSummeryQuery,
-    useMakeSellerMutation
+    useMakeSellerMutation,
+    useAddReviewMutation
 } = api

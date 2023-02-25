@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
+    "add": "^2.0.6",
     "daisyui": "^2.50.0",
     "react": "^18.2.0",
     "react-auth-kit": "^2.7.1",
@@ -21,7 +22,10 @@
     "react-redux": "^8.0.5",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.8.1",
-    "sweetalert2": "^11.7.1"
+    "react-simple-star-rating": "^5.1.7",
+    "react-star-ratings": "^2.3.0",
+    "sweetalert2": "^11.7.1",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

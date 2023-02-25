@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useCreateCategoryMutation } from "../../redux/api/api";
+import toast from "react-hot-toast";
 
 const CreateCategory = () => {
   const {
@@ -7,9 +9,24 @@ const CreateCategory = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [createCategory] = useCreateCategoryMutation();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const categoryData = {
+      name: data.category,
+    };
+
+    const response = await createCategory(categoryData);
+
+    if (response?.data?.success) {
+      toast.success(response?.data?.message, {
+        position: "bottom-center",
+      });
+    } else {
+      toast.error(response?.error?.data?.message, {
+        position: "bottom-center",
+      });
+    }
   };
 
   return (

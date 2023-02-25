@@ -38,6 +38,13 @@ export const api = createApi({
             }),
             invalidatesTags: ["category"]
         }),
+        createProduct: builder.mutation({
+            query: (data) => ({
+                url: "/product/create",
+                method: "POST",
+                body: data
+            })
+        }),
         getSingleProduct: builder.query({
             query: (id) => `/product/${id}`
         }),
@@ -119,6 +126,7 @@ export const {
     useUploadImageMutation,
     useGetCategoriesQuery,
     useCreateCategoryMutation,
+    useCreateProductMutation,
     useGetSingleProductQuery,
     useGetAllProductsQuery,
     useGetProductsByCategoryQuery,

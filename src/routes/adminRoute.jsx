@@ -4,6 +4,7 @@ import CreateProduct from "../Dashboards/CreateProduct/CreateProduct";
 import AdminOrders from "./../Dashboards/AdminOrders/AdminOrders";
 import CreateCategory from "./../Dashboards/CreateCategory/CreateCategory";
 import AdminCategories from './../Dashboards/AdminCategories/AdminCategories';
+import AllUser from "../Dashboards/AllUsers/AllUser";
 
 const adminRoute = [
   { name: "AdminDashboard", path: "dashboard", Element: AdminDashboard },
@@ -12,6 +13,7 @@ const adminRoute = [
   { name: "CreateProduct", path: "product/create", Element: CreateProduct },
   { name: "AdminCategories", path: "categories", Element: AdminCategories },
   { name: "CreateCategory", path: "category/create", Element: CreateCategory },
+  { name: "AllUsers", path: "user/all", Element: AllUser },
 ];
 
 export default adminRoute;

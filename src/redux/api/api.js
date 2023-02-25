@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 export const api = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
-    tagTypes: ["category", "products", "order"],
+    tagTypes: ["category", "products", "order", "user"],
     endpoints: (builder) => ({
         registerUser: builder.mutation({
             query: (data) => ({
@@ -18,6 +18,10 @@ export const api = createApi({
                 method: "POST",
                 body: data
             })
+        }),
+        getAllUser: builder.query({
+            query: ({ pageno, perpage }) => `/user/all?pageno=${pageno}&perpage=${perpage}`,
+            providesTags: ["user"]
         }),
         uploadImage: builder.mutation({
             query: (data) => ({
@@ -125,7 +129,15 @@ export const api = createApi({
             invalidatesTags: ["products"]
         }),
         summery: builder.query({
-            query: () => "/summery"
+            query: () => "/summery",
+            providesTags: ["user", "order"]
+        }),
+        makeSeller: builder.mutation({
+            query: (id) => ({
+                url: `/user/seller/${id}`,
+                method: "PUT"
+            }),
+            invalidatesTags: ["user"]
         })
     })
 })
@@ -133,6 +145,7 @@ export const api = createApi({
 export const {
     useRegisterUserMutation,
     useLoginUserMutation,
+    useGetAllUserQuery,
     useUploadImageMutation,
     useGetCategoriesQuery,
     useCreateCategoryMutation,
@@ -150,5 +163,6 @@ export const {
     useGetOrderByEmailQuery,
     useRestockProductMutation,
     useDeleteProductMutation,
-    useSummeryQuery
+    useSummeryQuery,
+    useMakeSellerMutation
 } = api

@@ -4,6 +4,8 @@ import { useSummeryQuery } from "../../redux/api/api";
 
 const AdminDashboard = () => {
   const { data, isLoading } = useSummeryQuery();
+
+  if(isLoading) return "Loading..."
   const summery = data?.data;
 
   return (

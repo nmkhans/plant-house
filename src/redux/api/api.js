@@ -123,6 +123,9 @@ export const api = createApi({
                 method: "DELETE"
             }),
             invalidatesTags: ["products"]
+        }),
+        summery: builder.query({
+            query: () => "/summery"
         })
     })
 })
@@ -146,5 +149,6 @@ export const {
     useDeleteOrderMutation,
     useGetOrderByEmailQuery,
     useRestockProductMutation,
-    useDeleteProductMutation
+    useDeleteProductMutation,
+    useSummeryQuery
 } = api

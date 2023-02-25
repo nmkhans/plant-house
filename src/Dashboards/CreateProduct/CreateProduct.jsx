@@ -13,6 +13,7 @@ const CreateProduct = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
   const { data, isLoading: categoryLoading } = useGetCategoriesQuery();
@@ -40,6 +41,7 @@ const CreateProduct = () => {
     const response = await createProduct(productData);
 
     if (response?.data?.success) {
+      reset()
       toast.success(response?.data?.message, {
         position: "bottom-center",
       });

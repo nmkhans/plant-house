@@ -3,6 +3,7 @@ import Hero from './../../sections/Hero/Hero';
 import Features from './../../sections/Features/Features';
 import AllProducts from '../../sections/AllProducts/AllProducts';
 import Newsletter from './../../sections/Newseletter/Newsletter';
+import UserReviews from '../../sections/UserReviews/UserReviews';
 
 const Home = () => {
 
@@ -12,6 +13,7 @@ const Home = () => {
                 <Hero />
                 <Features />
                 <AllProducts />
+                <UserReviews />
                 <Newsletter />
             </div>
         </main>

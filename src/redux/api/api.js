@@ -156,7 +156,7 @@ export const api = createApi({
             invalidatesTags: ["products"]
         }),
         getReviews: builder.query({
-            query: (id) => `/product/reviews/${id}`
+            query: () => `/product/get/reviews`
         }),
         getRecomendedProducts: builder.query({
             query: () => "/product/get/recomended"

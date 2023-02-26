@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  useGetReviewsQuery,
-  useGetSingleProductQuery,
-} from "../../redux/api/api";
+import { useGetSingleProductQuery } from "../../redux/api/api";
 import { useParams } from "react-router-dom";
 import capitalize from "./../../utils/captalize";
 import { useDispatch } from "react-redux";
@@ -89,7 +86,9 @@ const ProductDetail = () => {
           </div>
         </div>
         <div className="my-10">
-          <h3 className="my-5 text-primary text-2xl font-semibold">Recomended Products: </h3>
+          <h3 className="my-5 text-primary text-2xl font-semibold">
+            Recomended Products:{" "}
+          </h3>
           <RecomendedProduct />
         </div>
       </div>

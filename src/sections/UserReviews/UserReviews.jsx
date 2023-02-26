@@ -55,7 +55,7 @@ const UserReviews = () => {
         itemClass="carousel-item-padding-40-px"
         className="py-5"
       >
-        {reviews.map((review) => (
+        {reviews.slice(0, 10).map((review) => (
           <ReviewCard review={review} />
         ))}
       </Carousel>

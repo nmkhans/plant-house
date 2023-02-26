@@ -6,5 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000
-  }
+  },
+  resolve: {
+    alias: {
+      'pure-react-carousel': 'pure-react-carousel/dist/react-carousel.es.js',
+    },
+  },
 })

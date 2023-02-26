@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/state/cartSlice";
 import Spinner from "./../../components/Spinner/Spinner";
 import StarRatings from "react-star-ratings";
+import RecomendedProduct from "./../../components/RecomendedProducts/RecomendedProduct";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -28,8 +29,6 @@ const ProductDetail = () => {
   const totalReviews = parseFloat(reviews?.length);
 
   const rating = totalRating / totalReviews;
-  
-  console.log(totalRating, totalReviews, rating);
 
   return (
     <main className="py-5">
@@ -88,6 +87,10 @@ const ProductDetail = () => {
               </button>
             </div>
           </div>
+        </div>
+        <div className="my-10">
+          <h3 className="my-5 text-primary text-2xl font-semibold">Recomended Products: </h3>
+          <RecomendedProduct />
         </div>
       </div>
     </main>

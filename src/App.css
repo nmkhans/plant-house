@@ -4,3 +4,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+.react-multiple-carousel__arrow {
+    background: #8abe53 !important;
+}

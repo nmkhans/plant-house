@@ -157,6 +157,9 @@ export const api = createApi({
         }),
         getReviews: builder.query({
             query: (id) => `/product/reviews/${id}`
+        }),
+        getRecomendedProducts: builder.query({
+            query: () => "/product/get/recomended"
         })
     })
 })
@@ -187,5 +190,6 @@ export const {
     useUserSummeryQuery,
     useMakeSellerMutation,
     useAddReviewMutation,
-    useGetReviewsQuery
+    useGetReviewsQuery,
+    useGetRecomendedProductsQuery
 } = api

@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { useGetAllUserQuery, useMakeSellerMutation } from "../../redux/api/api";
+import {
+  useGetAllUserQuery,
+  useMakeAdminMutation,
+  useMakeSellerMutation,
+} from "../../redux/api/api";
 import { genButton } from "../../utils/paginationButton";
 import toast from "react-hot-toast";
 
@@ -10,6 +14,7 @@ const AllUser = () => {
   });
   const { data, isLoading } = useGetAllUserQuery(query);
   const [makeUser] = useMakeSellerMutation();
+  const [makeAdmin] = useMakeAdminMutation();
 
   if (isLoading) return "Loading...";
 
@@ -19,8 +24,22 @@ const AllUser = () => {
   const buttonCount = Math.ceil(count / query.perpage);
   console.log(users[0]);
 
-  const handleUpdate = async (id) => {
+  const handleMakeSeller = async (id) => {
     const response = await makeUser(id);
+
+    if (response?.data?.success) {
+      toast.success(response?.data?.message, {
+        position: "bottom-center",
+      });
+    } else {
+      toast.error(response?.error?.data?.message, {
+        position: "bottom-center",
+      });
+    }
+  };
+
+  const handleMakeAdmin = async (id) => {
+    const response = await makeAdmin(id);
 
     if (response?.data?.success) {
       toast.success(response?.data?.message, {
@@ -36,7 +55,7 @@ const AllUser = () => {
   return (
     <div className="p-5">
       <div>
-        <h3 className="text-2xl font-semibold text-base-200">All Products</h3>
+        <h3 className="text-2xl font-semibold text-base-200">All Users</h3>
       </div>
       <div className="mt-5">
         <div className="overflow-x-auto w-full">
@@ -68,10 +87,18 @@ const AllUser = () => {
                   <td>
                     {!user.seller && user.role !== "admin" && (
                       <button
-                        onClick={() => handleUpdate(user._id)}
+                        onClick={() => handleMakeSeller(user._id)}
                         className="btn btn-sm btn-info text-white"
                       >
                         Make seller
+                      </button>
+                    )}
+                    {user.role !== "admin" && (
+                      <button
+                        onClick={() => handleMakeAdmin(user._id)}
+                        className="btn btn-sm btn-warning ml-2 text-white"
+                      >
+                        Make Admin
                       </button>
                     )}
                   </td>

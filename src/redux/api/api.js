@@ -147,6 +147,13 @@ export const api = createApi({
             }),
             invalidatesTags: ["user"]
         }),
+        makeAdmin: builder.mutation({
+            query: (id) => ({
+                url: `/user/make-admin/${id}`,
+                method: "PUT"
+            }),
+            invalidatesTags: ["user"]
+        }),
         addReview: builder.mutation({
             query: (data) => ({
                 url: `/order/review/add/${data._id}`,
@@ -201,6 +208,7 @@ export const {
     useAdminSummeryQuery,
     useUserSummeryQuery,
     useMakeSellerMutation,
+    useMakeAdminMutation,
     useAddReviewMutation,
     useGetReviewsQuery,
     useGetRecomendedProductsQuery,

@@ -26,10 +26,11 @@ const Footer = () => {
                 <a className="link link-hover">Press kit</a>
             </div>
             <div>
-                <span className="footer-title">Legal</span>
-                <a className="link link-hover">Terms of use</a>
-                <a className="link link-hover">Privacy policy</a>
-                <a className="link link-hover">Cookie policy</a>
+                <span className="footer-title">Contact us</span>
+                <a className="link link-hover">For Queries: 01700540523</a>
+                <a className="link link-hover">For Information: 01700540523</a>
+                <a className="link link-hover">Email: afrinarashidbadhon1@gmail.com</a>
+                <a className="link link-hover">Facebook: Afrina Rashid</a>
             </div>
         </footer>
     );

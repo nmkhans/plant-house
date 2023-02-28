@@ -30,7 +30,7 @@ const ProductDetail = () => {
   return (
     <main className="py-5">
       <div className="container mx-auto px-5 lg:max-w-6xl">
-        <div className="card lg:card-side bg-base-100 shadow-xl border">
+        <div className="card lg:card-side bg-base-100 shadow-xl border px-5">
           <figure>
             <img
               className="w-[500px]"

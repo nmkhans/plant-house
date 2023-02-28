@@ -108,7 +108,10 @@ const Checkout = () => {
                   </h3>
 
                   <div className="form-control mb-2">
-                    <label onClick={() => setPaymentMethod("")} className="flex items-center justify-center cursor-pointer">
+                    <label
+                      onClick={() => setPaymentMethod("")}
+                      className="flex items-center justify-center cursor-pointer"
+                    >
                       <input
                         type="radio"
                         name="paymentmethod"
@@ -122,7 +125,10 @@ const Checkout = () => {
                   </div>
 
                   <div className="form-control mb-2">
-                    <label onClick={() => setPaymentMethod("Bkash")} className="flex items-center justify-center cursor-pointer">
+                    <label
+                      onClick={() => setPaymentMethod("Bkash")}
+                      className="flex items-center justify-center cursor-pointer"
+                    >
                       <input
                         type="radio"
                         name="paymentmethod"
@@ -137,7 +143,10 @@ const Checkout = () => {
                   </div>
 
                   <div className="form-control mb-2">
-                    <label onClick={() => setPaymentMethod("Nogod")} className="flex items-center justify-center cursor-pointer">
+                    <label
+                      onClick={() => setPaymentMethod("Nogod")}
+                      className="flex items-center justify-center cursor-pointer"
+                    >
                       <input
                         type="radio"
                         name="paymentmethod"
@@ -152,7 +161,10 @@ const Checkout = () => {
                   </div>
 
                   <div className="form-control mb-2">
-                    <label onClick={() => setPaymentMethod("Roket")} className="flex items-center justify-center cursor-pointer">
+                    <label
+                      onClick={() => setPaymentMethod("Roket")}
+                      className="flex items-center justify-center cursor-pointer"
+                    >
                       <input
                         type="radio"
                         name="paymentmethod"
@@ -169,7 +181,9 @@ const Checkout = () => {
                 {paymentMethod && (
                   <div className="border-2 rounded-md p-3 mt-5">
                     <div>
-                      <h3 className="font-semibold ">{paymentMethod} to 01700540523</h3>
+                      <h3 className="font-semibold ">
+                        {paymentMethod} to 01700540523
+                      </h3>
                     </div>
                   </div>
                 )}
@@ -191,8 +205,13 @@ const Checkout = () => {
                   </div>
                 </div>
                 <div className="mt-5">
+                  {agree === true && Object.keys(cart).length === 0 && (
+                    <p className="text text-red-500 mb-3">
+                      You need to have something on cart to place order!
+                    </p>
+                  )}
                   <button
-                    disabled={agree === false}
+                    disabled={agree === false || Object.keys(cart).length === 0}
                     type="submit"
                     className="btn btn-primary text-white w-full"
                   >

@@ -12,11 +12,11 @@ const Home = () => {
         <main className="py-5">
             <div className="container mx-auto px-5 lg:max-w-6xl">
                 <Hero />
-                <Features />
+                {/* <Features /> */}
                 <AllProducts />
                 <Podcast />
                 <UserReviews />
-                <Newsletter />
+                {/* <Newsletter /> */}
             </div>
         </main>
     );

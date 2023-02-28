@@ -34,6 +34,9 @@ const Admin = () => {
               <li>
                 <Link to="category/create">Create Category</Link>
               </li>
+              <li>
+                <Link to="podcast/create">Create Podcast</Link>
+              </li>
             </ul>
           </div>
         </div>

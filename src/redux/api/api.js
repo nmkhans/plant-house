@@ -160,6 +160,13 @@ export const api = createApi({
         }),
         getRecomendedProducts: builder.query({
             query: () => "/product/get/recomended"
+        }),
+        createPodcast: builder.mutation({
+            query: (data) => ({
+                url: "/podcast/create",
+                method: "POST",
+                body: data
+            })
         })
     })
 })
@@ -191,5 +198,6 @@ export const {
     useMakeSellerMutation,
     useAddReviewMutation,
     useGetReviewsQuery,
-    useGetRecomendedProductsQuery
+    useGetRecomendedProductsQuery,
+    useCreatePodcastMutation
 } = api

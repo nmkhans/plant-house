@@ -74,7 +74,7 @@ const Podcast = () => {
           arrows={true}
           swipeable={true}
           draggable={false}
-          showDots={true}
+          showDots={false}
           responsive={responsive}
           infinite={true}
           autoPlay={true}

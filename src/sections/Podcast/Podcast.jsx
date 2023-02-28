@@ -2,46 +2,12 @@ import React from "react";
 import podcastImage from "../../assets/podcast.jpg";
 import SinglePodcast from "../../components/SinglePodcast/SinglePodcast";
 import Carousel from "react-multi-carousel";
+import { useGetPodcastsQuery } from "../../redux/api/api";
 
 const Podcast = () => {
-  const podacasts = [
-    {
-      id: 1,
-      title: "How to care plants",
-      image: podcastImage,
-      link: "https://youtu.be/cJyneXT2vlk",
-    },
-    {
-      id: 2,
-      title: "How to care plants2",
-      image: podcastImage,
-      link: "https://youtu.be/cJyneXT2vlk",
-    },
-    {
-      id: 3,
-      title: "How to care plants3",
-      image: podcastImage,
-      link: "https://youtu.be/cJyneXT2vlk",
-    },
-    {
-      id: 1,
-      title: "How to care plants",
-      image: podcastImage,
-      link: "https://youtu.be/cJyneXT2vlk",
-    },
-    {
-      id: 2,
-      title: "How to care plants2",
-      image: podcastImage,
-      link: "https://youtu.be/cJyneXT2vlk",
-    },
-    {
-      id: 3,
-      title: "How to care plants3",
-      image: podcastImage,
-      link: "https://youtu.be/cJyneXT2vlk",
-    },
-  ];
+  const { data, isLoading } = useGetPodcastsQuery();
+
+  if (isLoading) return "Loading...";
 
   const responsive = {
     superLargeDesktop: {
@@ -61,6 +27,8 @@ const Podcast = () => {
       items: 1,
     },
   };
+
+  const podcasts = data?.data;
 
   return (
     <section className="py-10">
@@ -85,8 +53,8 @@ const Podcast = () => {
           itemClass="carousel-item-padding-40-px"
           className="py-5"
         >
-          {podacasts.map((podcast) => (
-            <SinglePodcast podcast={podcast} />
+          {podcasts.map((podcast, index) => (
+            <SinglePodcast key={podcast._id} podcast={podcast} index={index} />
           ))}
         </Carousel>
       </div>

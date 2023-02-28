@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 export const api = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
-    tagTypes: ["category", "products", "order", "user"],
+    tagTypes: ["category", "products", "order", "user", "podcast"],
     endpoints: (builder) => ({
         registerUser: builder.mutation({
             query: (data) => ({
@@ -161,12 +161,17 @@ export const api = createApi({
         getRecomendedProducts: builder.query({
             query: () => "/product/get/recomended"
         }),
+        getPodcasts: builder.query({
+            query: () => "/podcast/all",
+            providesTags: ["podcast"]
+        }),
         createPodcast: builder.mutation({
             query: (data) => ({
                 url: "/podcast/create",
                 method: "POST",
                 body: data
-            })
+            }),
+            invalidatesTags: ["podcast"]
         })
     })
 })
@@ -199,5 +204,6 @@ export const {
     useAddReviewMutation,
     useGetReviewsQuery,
     useGetRecomendedProductsQuery,
+    useGetPodcastsQuery,
     useCreatePodcastMutation
 } = api

@@ -47,8 +47,6 @@ const UserReviews = () => {
         infinite={true}
         autoPlay={true}
         autoPlaySpeed={3000}
-        keyBoardControl={true}
-        customTransition="all .5"
         transitionDuration={500}
         containerClass="carousel-container"
         dotListClass="custom-dot-list-style"

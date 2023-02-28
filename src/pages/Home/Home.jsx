@@ -4,6 +4,7 @@ import Features from './../../sections/Features/Features';
 import AllProducts from '../../sections/AllProducts/AllProducts';
 import Newsletter from './../../sections/Newseletter/Newsletter';
 import UserReviews from '../../sections/UserReviews/UserReviews';
+import Podcast from '../../sections/Podcast/Podcast';
 
 const Home = () => {
 
@@ -13,6 +14,7 @@ const Home = () => {
                 <Hero />
                 <Features />
                 <AllProducts />
+                <Podcast />
                 <UserReviews />
                 <Newsletter />
             </div>

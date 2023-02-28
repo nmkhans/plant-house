@@ -6,6 +6,7 @@ import CreateCategory from "./../Dashboards/CreateCategory/CreateCategory";
 import AdminCategories from "./../Dashboards/AdminCategories/AdminCategories";
 import AllUser from "../Dashboards/AllUsers/AllUser";
 import CreatePodcast from "../Dashboards/CreatePodcast/CreatePodcast";
+import AdminPodcasts from "../Dashboards/AdminPodcasts/AdminPodcasts";
 
 const adminRoute = [
   { name: "AdminDashboard", path: "dashboard", Element: AdminDashboard },
@@ -15,6 +16,7 @@ const adminRoute = [
   { name: "AdminCategories", path: "categories", Element: AdminCategories },
   { name: "CreateCategory", path: "category/create", Element: CreateCategory },
   { name: "AllUsers", path: "user/all", Element: AllUser },
+  { name: "AdminPodcasts", path: "podcasts", Element: AdminPodcasts },
   { name: "CreatePodcast", path: "podcast/create", Element: CreatePodcast },
 ];
 

@@ -179,6 +179,13 @@ export const api = createApi({
                 body: data
             }),
             invalidatesTags: ["podcast"]
+        }),
+        deletePodcast: builder.mutation({
+            query: (id) => ({
+                url: `/podcast/delete/${id}`,
+                method: "DELETE"
+            }),
+            invalidatesTags: ["podcast"]
         })
     })
 })
@@ -213,5 +220,6 @@ export const {
     useGetReviewsQuery,
     useGetRecomendedProductsQuery,
     useGetPodcastsQuery,
-    useCreatePodcastMutation
+    useCreatePodcastMutation,
+    useDeletePodcastMutation
 } = api

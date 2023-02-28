@@ -1,18 +1,17 @@
 import React from "react";
-import Swal from "sweetalert2";
 import {
-  useDeleteCategoryMutation,
-  useGetCategoriesQuery,
+  useDeletePodcastMutation,
+  useGetPodcastsQuery,
 } from "../../redux/api/api";
-import capitalize from "./../../utils/captalize";
+import Swal from "sweetalert2";
 
-const AdminCategories = () => {
-  const { data, isLoading } = useGetCategoriesQuery();
-  const [deleteCategory] = useDeleteCategoryMutation();
+const AdminPodcasts = () => {
+  const { data, isLoading } = useGetPodcastsQuery();
+  const [deletePodcast] = useDeletePodcastMutation();
 
   if (isLoading) return "Loading...";
 
-  const categories = data?.data;
+  const podcasts = data?.data;
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -25,9 +24,9 @@ const AdminCategories = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const response = await deleteCategory(id);
+        const response = await deletePodcast(id);
 
-        Swal.fire("Deleted!", "Your category has been deleted.", "success");
+        Swal.fire("Deleted!", "Your podcast has been deleted.", "success");
       }
     });
   };
@@ -35,7 +34,7 @@ const AdminCategories = () => {
   return (
     <div className="p-5">
       <div>
-        <h3 className="text-2xl font-semibold text-base-200">All Categories</h3>
+        <h3 className="text-2xl font-semibold text-base-200">All Podcasts</h3>
       </div>
       <div className="mt-5">
         <div className="overflow-x-auto w-full">
@@ -48,13 +47,13 @@ const AdminCategories = () => {
               </tr>
             </thead>
             <tbody>
-              {categories?.map((category) => (
-                <tr key={category._id}>
-                  <td>{category._id}</td>
-                  <td>{capitalize(category.name)} Plant</td>
+              {podcasts?.map((podcast) => (
+                <tr key={podcast._id}>
+                  <td>{podcast._id}</td>
+                  <td>{podcast.title}</td>
                   <td>
                     <button
-                      onClick={() => handleDelete(category._id)}
+                      onClick={() => handleDelete(podcast._id)}
                       className="btn btn-sm btn-error text-white"
                     >
                       Delete
@@ -70,4 +69,4 @@ const AdminCategories = () => {
   );
 };
 
-export default AdminCategories;
+export default AdminPodcasts;

@@ -16,7 +16,7 @@ const AllProducts = () => {
     return (
         <section className="py-10">
             <div>
-                <h3 className="text-3xl font-semibold text-base-200">Leatest Products</h3>
+                <h3 className="text-3xl font-semibold text-base-200">Latest Products</h3>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-10">
                 {products?.map(product => <Product key={product._id} product={product} />)}

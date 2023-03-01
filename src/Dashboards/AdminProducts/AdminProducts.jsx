@@ -89,7 +89,7 @@ const AdminProducts = () => {
                         Out of stock
                       </span>
                     ) : (
-                      <span>{product.stock} Pice</span>
+                      <span>{product.stock} piece</span>
                     )}
                   </td>
                   <td>

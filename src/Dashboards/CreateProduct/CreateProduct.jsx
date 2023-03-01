@@ -177,7 +177,7 @@ const CreateProduct = () => {
           <input
             id="stock"
             type="text"
-            placeholder="Enter product name"
+            placeholder="Enter product stock"
             className="input input-bordered"
             {...register("stock", {
               required: {

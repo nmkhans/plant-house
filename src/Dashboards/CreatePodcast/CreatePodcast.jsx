@@ -4,6 +4,7 @@ import {
   useCreatePodcastMutation,
 } from "../../redux/api/api";
 import toast from "react-hot-toast";
+import uploadImageFetch from './../../utils/uploadImage';
 
 const CreatePodcast = () => {
   const [createPodcast] = useCreatePodcastMutation();

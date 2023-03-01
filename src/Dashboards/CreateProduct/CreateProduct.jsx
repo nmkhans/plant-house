@@ -6,6 +6,7 @@ import {
 } from "../../redux/api/api";
 import capitalize from "./../../utils/captalize";
 import toast from "react-hot-toast";
+import uploadImageFetch from './../../utils/uploadImage';
 
 const CreateProduct = () => {
   const {

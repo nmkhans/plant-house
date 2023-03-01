@@ -2,12 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import {
   useCreatePodcastMutation,
-  useUploadImageMutation,
 } from "../../redux/api/api";
 import toast from "react-hot-toast";
 
 const CreatePodcast = () => {
-  const [uploadImage] = useUploadImageMutation();
   const [createPodcast] = useCreatePodcastMutation();
   const {
     register,
@@ -21,13 +19,11 @@ const CreatePodcast = () => {
     const formData = new FormData();
     formData.append("image", image);
 
-    const {
-      data: { url },
-    } = await uploadImage(formData);
-  
+    const imageUrl = await uploadImageFetch(formData);
+
     const podcastData = {
       ...data,
-      image: url,
+      image: imageUrl?.data?.url,
     };
 
     const response = await createPodcast(podcastData);

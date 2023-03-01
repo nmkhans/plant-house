@@ -4,11 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useSignIn } from "react-auth-kit";
-import {
-  useRegisterUserMutation,
-  useUploadImageMutation,
-} from "../../redux/api/api";
+import { useRegisterUserMutation } from "../../redux/api/api";
 import { TailSpin } from "react-loader-spinner";
+import uploadImageFetch from "./../../utils/uploadImage";
 
 const Register = () => {
   const {
@@ -16,7 +14,6 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [uploadImage] = useUploadImageMutation();
   const [registerUser, { isLoading }] = useRegisterUserMutation();
   const signIn = useSignIn();
   const navigate = useNavigate();
@@ -26,13 +23,12 @@ const Register = () => {
       const image = data.image[0];
       const formData = new FormData();
       formData.append("image", image);
-      const {
-        data: { url: imageUrl },
-      } = await uploadImage(formData);
+
+      const imageUrl = await uploadImageFetch(formData);
 
       const userData = {
         ...data,
-        image: imageUrl,
+        image: imageUrl?.data?.url,
       };
 
       const response = await registerUser(userData);

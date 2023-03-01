@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import {
   useCreateProductMutation,
   useGetCategoriesQuery,
-  useUploadImageMutation,
 } from "../../redux/api/api";
 import capitalize from "./../../utils/captalize";
 import toast from "react-hot-toast";
@@ -17,7 +16,6 @@ const CreateProduct = () => {
   } = useForm();
 
   const { data, isLoading: categoryLoading } = useGetCategoriesQuery();
-  const [uploadImage] = useUploadImageMutation();
   const [createProduct] = useCreateProductMutation();
 
   if (categoryLoading) return "Loading...";
@@ -29,13 +27,11 @@ const CreateProduct = () => {
     const formData = new FormData();
     formData.append("image", image);
 
-    const {
-      data: { url },
-    } = await uploadImage(formData);
+    const imageUrl = await uploadImageFetch(formData);
 
     const productData = {
       ...data,
-      image: url,
+      image: imageUrl?.data?.url
     };
 
     const response = await createProduct(productData);

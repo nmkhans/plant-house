@@ -23,13 +23,6 @@ export const api = createApi({
             query: ({ pageno, perpage }) => `/user/all?pageno=${pageno}&perpage=${perpage}`,
             providesTags: ["user"]
         }),
-        uploadImage: builder.mutation({
-            query: (data) => ({
-                url: "/upload",
-                method: "POST",
-                body: data
-            })
-        }),
         getCategories: builder.query({
             query: () => "/categories",
             providesTags: ["category"]
@@ -194,7 +187,6 @@ export const {
     useRegisterUserMutation,
     useLoginUserMutation,
     useGetAllUserQuery,
-    useUploadImageMutation,
     useGetCategoriesQuery,
     useCreateCategoryMutation,
     useDeleteCategoryMutation,
